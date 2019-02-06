@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Een selectie van projecten uit het portfolio van Gilles Vermeulen, creative developer.">
+  <title>Gilles Vermeulen - Creative Developer</title>
+  <style>@keyframes closed-eyelids{0%{opacity:0}98%{opacity:100}}@keyframes pupil-movement{0%,70%,to{transform:none}71%,80%{transform:translateX(-75%)}82%,99%{transform:translateX(75%)}}body{background:url(static/imgs/bg_pattern.gif) #51c9ab center bottom;background-attachment:fixed;transition:background-color .2s ease-out;padding:0;margin:0;text-shadow:.08em .08em 0 rgba(0,0,0,.2);font-family:'Kreon',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#fff;overflow:hidden}body[data-detached=true]{background-color:#62ebc8}#scroll-outer-wrapper{box-sizing:border-box;position:absolute;height:100vh;height:calc(var(--vh, 1vh)*100);width:100%;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;pointer-events:auto}#scroll-inner-wrapper,body{pointer-events:none}body[data-project-active=true] #scroll-outer-wrapper{overflow-y:hidden}h1,h2,h3{margin:0;line-height:1}h1,h4{font-weight:700}h4{margin:0;line-height:1}h1{font-size:9vmin;font-size:calc(var(--vmin, 1vmin)*9)}h2,h3{font-weight:400}h2{font-size:5.5vmin;font-size:calc(var(--vmin, 1vmin)*5.5)}h3{font-size:1.25em}p{margin:0 0 1em}p:last-child{margin-bottom:0}#head{position:fixed;bottom:0;width:90vmin;width:calc(var(--vmin, 1vmin)*90);left:50%;transform:translateX(-50%);line-height:0;z-index:1}#face svg,#scalp svg{display:none}#face{background:url(static/imgs/head_merged_opt.gif) no-repeat;background-position:center -40vmin;background-position:center calc(var(--vmin, 1vmin)*-40)}#scalp{background:url(static/imgs/head_merged_opt.gif) no-repeat center top}#face,#scalp{background-size:cover}#face{transform-origin:center bottom;margin-top:-1vmin;margin-top:calc(var(--vmin, 1vmin)*-1);height:0;padding-bottom:27.5%}#face svg{width:125%;margin-left:-12.5%}#eyes,.eye{position:absolute}#eyes{left:0;bottom:-.5rem;transform-origin:center bottom;width:100%}.eye{width:21.12676%;bottom:0}#eye-left{left:25%}#eye-right{right:25%}.eyeball{width:100%;height:0;padding-bottom:90%;background:url(static/imgs/head_merged_opt.gif) no-repeat left bottom;background-size:90vmin auto;background-size:calc(var(--vmin, 1vmin)*90) auto}.pupil{position:absolute;left:30%;top:32%;width:40%;height:44.5%;animation-name:pupil-movement;animation-timing-function:ease-out;animation-iteration-count:infinite;animation-duration:6s}.pupil__inner{transition:transform .1s ease;transform-origin:center center;position:absolute;left:0;top:0;width:100%;height:100%;background:url(static/imgs/head_merged_opt.gif) no-repeat;background-position:-20vmin -84.4vmin;background-position:calc(var(--vmin, 1vmin)*-20) calc(var(--vmin, 1vmin)*-84.4);background-size:90vmin auto;background-size:calc(var(--vmin, 1vmin)*90) auto}.closed-eyelids,.eyebrow,.eyelid{transition:transform .1s ease-out;position:absolute}.eyelid{left:0;top:0;width:100%;background:url(static/imgs/head_merged_opt.gif) no-repeat;background-position:-50vmin -45min;background-position:calc(var(--vmin, 1vmin)*-50) calc(var(--vmin, 1vmin)*-45);background-size:150vmin auto;background-size:calc(var(--vmin, 1vmin)*150) auto;height:100%;transform:scaleY(.45);transform-origin:center top}.closed-eyelids,.eyebrow{background-repeat:no-repeat;background-color:transparent}.closed-eyelids{right:-4%;bottom:-6%;background-position:center top;background-size:contain;opacity:0;animation-name:closed-eyelids;animation-timing-function:step-end;animation-iteration-count:infinite;animation-duration:6s;left:-4%;top:-4%}.eyebrow{left:-14%;top:45%;width:128%;height:0;padding-bottom:23%;background-size:90vmin auto;transform:translate3d(0,-50%,0)}#eye-left .closed-eyelids{background-image:url(static/imgs/closed_eyelids_left_opt.gif)}#eye-right .closed-eyelids{background-image:url(static/imgs/closed_eyelids_right_opt.gif)}#eye-left .eyebrow,#eye-right .eyebrow{background-image:url(static/imgs/head_merged_opt.gif)}#eye-left .eyebrow{background-position:calc(var(--vmin, 1vmin)*-19.3) calc(var(--vmin, 1vmin)*-74.5);background-position:-19.3vmin -74.5vmin}#eye-right .eyebrow{background-position:-19.3vmin -79.6vmin;background-position:calc(var(--vmin, 1vmin)*-19.3) calc(var(--vmin, 1vmin)*-79.6)}#scalp{position:relative;transform-origin:center bottom;height:0;padding-bottom:43%}#scalp-bottom{background:url(static/imgs/head_merged_opt.gif) no-repeat;background-position:center -65.5vmin;background-position:center calc(var(--vmin, 1vmin)*-65.5);background-size:cover;height:8.38vmin;height:calc(var(--vmin, 1vmin)*8.38);position:absolute;bottom:0;left:0;right:0;transform:translateY(50%) scaleY(0);box-sizing:border-box}#eyelids-top{transform-origin:top center}#content{transition:z-index 0s step-start .3s;position:fixed;width:100%;left:0;right:0;top:0;text-align:center;z-index:0}body[data-project-active=true] #content{transition-timing-function:step-end;transition-delay:.3s;z-index:2}[data-emotional-state=startled] .pupil__inner{transform:scale(.75)}[data-emotional-state=startled] .eyebrow{transform:translate3d(0,-100%,0)}[data-emotional-state=startled] .eyelid{transform:scaleY(.35)}[data-emotional-state=horrified] .pupil__inner{transform:scale(.5)}[data-emotional-state=horrified] .eyebrow{transform:translate3d(0,-320%,0)}[data-emotional-state=horrified] .eyelid{transform:scaleY(0)}#intro,#outro{transition:opacity .3s ease;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;min-height:100vh;min-height:calc(var(--vh, 1vh)*100);transform:translate3d(0,0,0)}#intro .inner,#outro .inner{position:relative;padding-top:4vmin;padding-top:calc(var(--vh, 1vh)*4);padding-bottom:4vmin;padding-bottom:calc(var(--vh, 1vh)*4)}#intro{padding-bottom:calc(var(--vmin, 1vmin)*62);padding-bottom:62vmin}#intro .inner:after,#outro .inner:before{content:"";display:block;position:absolute}#intro .inner:after{pointer-events:none;top:-30%;background:url(static/imgs/shine.gif) no-repeat center/contain;left:-30%;right:-30%;bottom:-30%}#outro{padding-bottom:26vmin;padding-bottom:calc(var(--vmin, 1vmin)*26)}#outro .inner:before{bottom:90%;left:0;right:0;height:15vmin;height:calc(var(--vmin, 1vmin)*15);background:url(static/imgs/envelope.gif) no-repeat center/contain}#projects{margin-top:20vh;margin-top:calc(var(--vh, 1vh)*20)}.project{transition:opacity .3s ease .3s;position:relative;height:1px;width:1px;margin-bottom:60vmin;margin-bottom:calc(var(--vmin, 1vmin)*60);margin-left:auto;margin-right:auto}.project:last-child{margin-bottom:13vmin;margin-bottom:calc(var(--vmin, 1vmin)*13)}.project .title{transition:color .3s ease,transform 0s ease,text-shadow .3s ease;position:absolute;z-index:1;width:30vmin;width:calc(var(--vmin, 1vmin)*30);left:-15vmin;left:calc(var(--vmin, 1vmin)*-15)}.project .image-container{transition:transform .3s ease .3s;display:block;width:40vmin;width:calc(var(--vmin, 1vmin)*40);height:40vmin;height:calc(var(--vmin, 1vmin)*40);position:absolute;top:-30vmin;top:calc(var(--vmin, 1vmin)*-30);left:-20vmin;left:calc(var(--vmin, 1vmin)*-20);z-index:0;overflow:hidden;font-size:0}.project .image-container a{-webkit-tap-highlight-color:transparent;display:block}body[data-detached=true] .project .image-container a{pointer-events:auto}.project .image-container img{width:100%;height:auto}.project .description-container{transition:max-height .3s ease 0s;position:absolute;top:-3.2vmin;top:calc(var(--vmin, 1vmin)*-3.2);left:0;box-sizing:border-box;max-height:0;display:none;overflow:hidden;z-index:-1;transform:translate3d(-50%,0,0);width:40em;max-width:85vw;background:url(static/imgs/content_bg.gif) no-repeat center/100% 100%}.project .description-container:after{content:"";display:block;position:absolute;width:5vmin;width:calc(var(--vmin, 1vmin)*5);height:5vmin;height:calc(var(--vmin, 1vmin)*5);right:3vmin;right:calc(var(--vmin, 1vmin)*3);top:3vmin;top:calc(var(--vmin, 1vmin)*3);background:url(static/imgs/close.gif) no-repeat center/contain}.project .description{padding:16vmin 3vmin 4vh;padding:calc(var(--vmin, 1vmin)*16) calc(var(--vmin, 1vmin)*3) calc(var(--vh, 1vh)*4)}.project .description__inner{pointer-events:none;scrollbar-width:thin;-ms-overflow-style:-ms-autohiding-scrollbar;max-height:60vh;max-height:calc(var(--vh, 1vh)*60);overflow-x:hidden;overflow-y:auto;padding:0 1vmin;padding:0 calc(var(--vmin, 1vmin)*1);color:#51c9ab;text-shadow:none}@media (min-aspect-ratio:1/1){.project .description__inner{max-height:49vh;max-height:calc(var(--vh, 1vh)*49)}}.project .description__inner *{pointer-events:none}.project .description__inner a{display:inline-block;pointer-events:all;text-decoration:none;padding-left:.2em;padding-right:.2em;color:#33977e;background:url(static/imgs/highlight.gif) no-repeat center/100% 100%;white-space:nowrap}.project .keywords{color:#ffbe92;font-weight:700;margin-bottom:1em}.project .credits{margin-top:3em;font-size:.85em}.project .credits h3{margin-top:1em;margin-bottom:.25em}.project[data-active=true] .title{transform:translate3d(0,0,0)!important;color:#51c9ab;text-shadow:none}.project[data-active=true] .info{display:block}.project[data-active=true] .image-container{transition-delay:0s;transform:scale(.55)}.project[data-active=true] .description-container{transition-delay:.3s;max-height:95vh;max-height:calc(var(--vh, 1vh)*95)}.project[data-active=true] .description__inner{pointer-events:auto}.project[data-active=true]{transition-delay:0s}.project[data-transitioning=true] .description-container{display:block}.project[data-transitioning=true] .title{transition-duration:.3s,.3s,.3s}body[data-project-active=true] .project:not([data-active=true]){transition-delay:0s;opacity:0}body[data-project-transitioning=true] #intro,body[data-project-transitioning=true] #outro{opacity:0}body[data-project-active=true] .project:not([data-active=true]) .image-container a{pointer-events:none}html:not(.no-displacement-map-support) #intro[data-in-viewport=true] .inner *,html:not(.no-displacement-map-support) #outro[data-in-viewport=true] .inner *,html:not(.no-displacement-map-support) .project[data-in-viewport=true] .title{filter:url(#turbulence-filter)}.no-css-pointer-events-support,.no-css-pointer-events-support body{height:auto!important}.no-css-pointer-events-support body{overflow-x:hidden;overflow-y:auto}.no-css-pointer-events-support #scroll-outer-wrapper{display:none!important}.no-css-pointer-events-support #content{transform:none!important;position:relative}@font-face{font-family:'Kreon';font-style:normal;font-weight:400;src:local('Kreon Regular'),local('Kreon-Regular'),url(static/fonts/kreon-v13-latin-regular.woff2) format('woff2'),url(static/fonts/kreon-v13-latin-regular.woff) format('woff')}@font-face{font-family:'Kreon';font-style:normal;font-weight:700;src:local('Kreon Bold'),local('Kreon-Bold'),url(static/fonts/kreon-v13-latin-700.woff2) format('woff2'),url(static/fonts/kreon-v13-latin-700.woff) format('woff')}</style>
+</head>
+<body>
+  <div id="scroll-outer-wrapper">
+    <div id="scroll-inner-wrapper">
+    </div>
+  </div>
+
+  <div id="content">
+    <div id="intro">
+      <div class="inner">
+        <h1>Gilles Vermeulen</h1>
+        <h2>Creative Developer</h2>
+      </div>
+    </div>
+    
+    <div id="projects">
+      <div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/boeva.gif" alt="Boeva the Game" /></a></div>
+        <h2 class="title">Boeva the Game</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Concept, Design, Development, Animatie</h3>
+              <p>William Boeva creëerde samen met Ketnet een programma over videogames, genaamd "Boeva & the games". Ketnet vroeg ons om een bijpassende game te ontwikkelen, waarin de speler kennis zou maken met een breed gamma aan speltypes en gaming-tijdperken. Het resultaat is <a href="https://content.ketnet.be/ketnet/games/boeva-the-game/4/index.html">"Boeva the Game"</a>: een ode aan videogames, gemaakt in HTML5 en speelbaar op elk modern toestel, van desktop tot mobiel.</p>
+              <div class="credits">
+                <h3>Concept</h3>
+                Ketnet & mezelf
+                <h3>Design</h3>
+                Kay Aerts & mezelf
+                <h3>Development</h3>
+                Bregt Vanbilsen & mezelf
+                <h3>Animatie</h3>
+                Bregt Vanbilsen & mezelf
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/kaatje.gif" alt="Kaatje van Ketnet" /></a></div>
+        <h2 class="title">Kaatje van Ketnet</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Development, Animatie</h3>
+              <p>Sinds 2011 ben ik nauw betrokken bij de ontwikkeling van Kaatje's digitale wereld. Tijdens dit traject heb ik een belangrijke rol gespeeld in het bouwen van de fundamenten en het merendeel van de uiteenlopende spelletjes.</p>
+              <p>Je kunt Kaatje in actie zien <a href="http://kaatje.ketnet.be/html/">in je browser</a> of op je tablet, via de <a href="https://www.ketnet.be/kaatje-voor-ouders/kaatje-van-ketnet-app">"Kaatje van Ketnet"</a> of de <a href="https://www.ketnet.be/ketnet-jr/over-de-app">"Ketnet Jr"</a> app.</p>
+              <div class="credits">
+                <h3>Concept</h3>
+                Ketnet, Pascal Vermeersch & Pure Communication
+                <h3>Design</h3>
+                Pascal Vermeersch
+                <h3>Development</h3>
+                Bregt Vanbilsen & mezelf
+                <h3>Animatie</h3>
+                Bregt Vanbilsen & mezelf  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/staarwaars.gif" alt="HBvL Staar Waars" /></a></div>
+        <h2 class="title">HBvL<br>Staar Waars</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Concept, Design, Development, Animatie</h3>
+              <p>In 2015 introduceerde Disney een nieuw hoofdstuk in de Star Wars saga. Ter ere van deze heuglijke gebeurtenis, wilde Het Belang van Limburg een Star Wars actie met een Limburgse twist op poten zetten. Het resultaat is <a href="http://staarwaars.hbvl.be/">een interactieve Darth Vader kloon</a>, die alles uitspreekt wat je hem voorzegt.</p>
+              <p>Ik zorgde onder andere voor het ontwerp en de uitwerking van het 3D model, alsook de code, animaties en koppeling met de externe text-to-speech service.</p>
+              <div class="credits">
+                <h3>Concept</h3>
+                Het Belang van Limburg & mezelf
+                <h3>Design</h3>
+                Kay Aerts & mezelf
+                <h3>Development</h3>
+                Mezelf
+                <h3>Animatie</h3>
+                Mezelf  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/interactievefictie.gif" alt="Interactieve Fictie" /></a></div>
+        <h2 class="title">Interactieve Fictie</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Concept, Design, Development</h3>
+              <p>Ketnet wil innoveren en wij doen daar graag aan mee. Zo ook toen ze als één van de eerste Belgische zenders interactieve fictie wilden creëren. Ze kwamen naar ons met een vraag: hoe maken we een interactieve aflevering voor onze populaire reeks "De Regel van 3S"?</p>
+              <p>Als antwoord ontwikkelden we een framework waarmee we de kijker volledig kunnen onderdompelem in de fictie. Zo moet men niet alleen over het lot van de personages beslissen, maar tevens snelheid en behendigheid gebruiken om interactieve segmenten tot een goed einde te brengen. Probeer het zelf maar eens <a href="https://www.ketnet.be/spelen/regel-het-voor-dries-de-kunstroof">in je browser</a> of zoek naar "Regel het voor Dries: de kunstroof" in de Ketnet app!</p>
+              <p>Omdat dit nieuw terrein was voor de programmamakers, heb ik hen tevens begeleid met het schrijven van het script en bij de opnames van enkele actiescènes.</p>
+              <div class="credits">
+                <h3>Concept</h3>
+                Ketnet, Bregt Vanbilsen & mezelf
+                <h3>Design</h3>
+                Kay Aerts & mezelf
+                <h3>Development</h3>
+                Mezelf 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/philippaerts.gif" alt="Philippaerts" /></a></div>
+        <h2 class="title">Philippaerts</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Development, Animatie</h3>
+              <p>De familie Philippaerts is alom gekend door hun indrukwekkende prestaties in de wereld van de paardensport. Via subtiele animaties in <a href="http://www.philippaerts.be">de Drupal website</a> die we voor hen creëerden, probeerden we de elegantie van hun paarden te reflecteren.</p>
+              <div class="credits">
+                <h3>Design</h3>
+                Kay Aerts
+                <h3>Development</h3>
+                Mezelf
+                <h3>Animatie</h3>
+                Mezelf 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--div class="project">
+        <div class="image-container"><a href="#"><img src="static/imgs/projects/project1.gif" alt="D5R & 4eVeR" /></a></div>
+        <h2 class="title">D5R & 4eVeR</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">Development</h3>
+              <p>Toen Ketnet de jongerenseries D5R en 4eVeR lanceerde, mochten wij het verhaal verderzetten in digitale vorm. We creëerden voor beide programma's een framework waarmee de programmamakers fictieve conversaties kunnen houden tussen de verschillende personages. De kijkers kunnen stiekem in de GSM's van karakters neuzen en zo hun diepste geheimen ontrafelen. Voyeurisme ten top! <a href="https://d5r.ketnet.be/">Neem ook eens een kijkje</a> als je nieuwsgierig bent.</p>
+              <div class="credits">
+                <h3>Concept</h3>
+                Ketnet & Pure Communication
+                <h3>Design</h3>
+                Kay Aerts
+                <h3>Development</h3>
+                Bregt Vanbilsen & mezelf
+              </div>
+            </div>
+          </div>
+        </div>
+      </div-->
+    </div>
+
+    <div id="outro">
+      <div class="inner">
+        <h2>
+          Contacteer mij<br>
+          &#103;&#105;&#108;&#108;&#101;&#115;&#118;&#101;&#114;&#109;&#101;&#117;&#108;&#101;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="head" data-emotional-state="bored">
+    <div id="scalp">
+      <div id="scalp-bottom"></div>
+    </div>
+    <div id="face">
+      <div id="eyes">
+        <div id="eye-left" class="eye"><div class="eyeball"></div><div class="pupil"><div class="pupil__inner"></div></div><div class="eyelid"></div><div class="closed-eyelids"></div><div class="eyebrow"></div></div>
+        <div id="eye-right" class="eye"><div class="eyeball"></div><div class="pupil"><div class="pupil__inner"></div></div><div class="eyelid"></div><div class="closed-eyelids"></div><div class="eyebrow"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <svg>
+    <defs>
+      <filter id="turbulence-filter">
+        <feTurbulence id="turbulence-filter__turbulence1" type="turbulence" baseFrequency="0.03" numOctaves="1" result="turbulence1">
+          <animate attributeName="baseFrequency" from="0.03" to="0.04" dur="0.5s" calcMode="discrete" values="0.03;0.01;0.04" keyTimes="0;0.33333;0.66666" fill="freeze" repeatCount="indefinite" />
+        </feTurbulence>
+        <feTurbulence id="turbulence-filter__turbulence2" type="turbulence" baseFrequency="0.01" numOctaves="1" result="turbulence2" />
+        <feTurbulence id="turbulence-filter__turbulence3" type="turbulence" baseFrequency="0.04" numOctaves="1" result="turbulence3" />
+        <feDisplacementMap id="turbulence-filter__displacement" in2="turbulence1" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <script>"use strict";!function(){var t,e=0,n=0,r=0,o=document.querySelector("#scroll-outer-wrapper"),a=document.querySelector("#scroll-inner-wrapper"),i=document.querySelector("#head"),l=document.querySelector("#scalp"),u=!1,s=.4,m=0,c=0,d=document.querySelector("#scalp-bottom"),p=null,y=null,f=null,v=null,h=null,g=document.querySelector("#face"),_=800,w=500,M=null,b=document.querySelector("#eyes"),S=(document.querySelector("#eye-left .eyebrow"),document.querySelector("#eye-right .eyebrow"),document.querySelector("#eye-left .eyelid"),document.querySelector("#eye-right .eyelid"),document.querySelector("#content")),x=0,T=0,X=document.querySelectorAll("#intro, #outro, .project"),E=document.querySelectorAll(".project"),A=document.querySelectorAll(".project .image-container > a"),Y=document.querySelectorAll(".project > .title"),O=30,q=2e3,D=3e3,j="bored",H=null,I=performance.now(),k=I,Q=o,V=o;((t=document.createElement("a").style).cssText="pointer-events:auto","auto"===t.pointerEvents)||(document.documentElement.className+=" no-css-pointer-events-support",Q=window,V=document.documentElement),-1!=navigator.userAgent.indexOf("Safari")&&-1==navigator.userAgent.indexOf("Chrome")&&-1==navigator.userAgent.indexOf("Opera")&&(document.documentElement.className+=" no-displacement-map-support");var C=!0,L=!0,B=!1,P=void 0;try{for(var R,W=E[Symbol.iterator]();!(L=(R=W.next()).done);L=!0){var N=R.value;N._active=!1,N._transitioning=!1,N._targetOffsetX=(.3+.4*Math.random())*(C?-1:1),N._targetOffsetXMultiplier=1,C=!C}}catch(t){B=!0,P=t}finally{try{L||null==W.return||W.return()}finally{if(B)throw P}}var F=!0,z=!1,G=void 0;try{for(var J,K=A[Symbol.iterator]();!(F=(J=K.next()).done);F=!0){J.value.addEventListener("click",lt)}}catch(t){z=!0,G=t}finally{try{F||null==K.return||K.return()}finally{if(z)throw G}}var U=!0,Z=!1,$=void 0;try{for(var tt,et=Y[Symbol.iterator]();!(U=(tt=et.next()).done);U=!0){var nt=tt.value;nt._originX=-O+2*Math.random()*O,nt._originY=-O+2*Math.random()*O,nt._targetX=-O+2*Math.random()*O,nt._targetY=-O+2*Math.random()*O,nt._movementDurationX=q+Math.random()*(D-q),nt._movementDurationY=q+Math.random()*(D-q),nt._movementStartTimestampX=Math.random()*nt._movementDurationX,nt._movementStartTimestampY=Math.random()*nt._movementDurationY}}catch(t){Z=!0,$=t}finally{try{U||null==et.return||et.return()}finally{if(Z)throw $}}function rt(t){n=Math.max(document.documentElement.clientWidth,window.innerWidth||0),e=Math.max(document.documentElement.clientHeight,window.innerHeight||0);var r=.01*Math.min(n,e);document.documentElement.style.setProperty("--vmin",r+"px");var i=.01*e;document.documentElement.style.setProperty("--vh",i+"px"),document.documentElement.style.height=document.body.style.height=o.style.height=window.innerHeight+"px",a.style.height=S.offsetHeight+"px",ut()}function ot(t){if(r=V.scrollTop,!u&&r<s*e)m=r*(s*e-.5*r)/(s*e),0!=r?(it("startled"),window.clearTimeout(M),M=window.setTimeout(at,w)):it("bored");else{if(!u){it("horrified"),window.clearTimeout(M),p=k;var n=l.getBoundingClientRect(),o=g.getBoundingClientRect();v=n.width/l.clientWidth,h=n.height/l.clientHeight,y=o.width/g.clientWidth,f=o.height/g.clientHeight,u=!0,document.body.setAttribute("data-detached","true")}m=r}T=r}function at(){window.clearTimeout(M),V.scrollTop=0}function it(t,e){(t!=j||e)&&(i.setAttribute("data-emotional-state",t),j=t)}function lt(t){t.preventDefault();var e=t.target.closest(".project"),n=e.getAttribute("data-active");n&&"false"!=n?st(e):function(t){H=t,void 0!==t._transitioningTimeout&&t._transitioningTimeout&&window.clearTimeout(t._transitioningTimeout);ut(),t._active=!0,t._transitioning=!0,t.setAttribute("data-transitioning","true"),t._transitioningTimeout=window.setTimeout(function(){t.setAttribute("data-active","true")},20),document.body.setAttribute("data-project-active","true"),document.body.setAttribute("data-project-transitioning","true"),t.querySelector(".description__inner").scrollTop=0,document.addEventListener("click",mt)}(e)}function ut(){H&&(V.scrollTop=H.offsetTop-.23*Math.min(n,e))}function st(t){H=null,t._active=!1,t.setAttribute("data-active","false"),t._transitioningTimeout=window.setTimeout(function(){t._transitioning=!1,t.setAttribute("data-transitioning","false"),document.body.setAttribute("data-project-transitioning","false")},400),document.body.setAttribute("data-project-active","false"),document.removeEventListener("click",mt)}function mt(t){H&&t.target&&void 0!==t.target.id&&"scroll-outer-wrapper"==t.target.id&&st(H)}function ct(t,e){switch(t){case"easeOutElastic":var n,r=1.5;return 0===e?0:1===e?1:(!r||r<1?(r=1,n=.075):n=.3*Math.asin(1/r)/(2*Math.PI),r*Math.pow(2,-10*e)*Math.sin((e-n)*(2*Math.PI)/.3)+1);case"easeInQuad":return e*e;case"easeOutQuad":return e*(2-e);case"easeInOutQuad":return e<.5?2*e*e:(4-2*e)*e-1}}window.addEventListener("resize",rt),rt(),Q.addEventListener("scroll",ot),ot(),window.requestAnimationFrame(function t(n){if(k+=Math.min(n-I,50),(c=(8*c+m)/9)<=e?(l.style.transform="translate3d(0px, "+-1*c+"px, 0px)","block"!=l.style.display&&(l.style.display="block")):"none"!=l.style.display&&(l.style.display="none"),c<=1&&u&&(it("bored"),document.body.setAttribute("data-detached","false"),u=!1),u){if(k-p<=_){var r=ct("easeOutElastic",(k-p)/_);g.style.transform="scale("+(y-(y-1)*r)+", "+(f-(f-1)*r)+")",b.style.transform="scaleY("+Math.pow(1/(f-(f-1)*r),.4)+")",l.style.transform+=" scale("+(v-(v-1)*r)+", "+(h-(h-1)*r)+")"}d.style.transform="translate3d(0px, 50%, 0px) scaleY("+Math.min(c/e,1)+")"}else{var o=(g.clientHeight+c)/g.clientHeight;g.style.transform="scale("+(5+1/o)/6+", "+o+")",b.style.transform="scaleY("+Math.pow(1/o,.4)+")",l.style.transform+=" scale("+(5+1/o)/6+", "+(12+o)/13+")",d.style.transform="translate3d(0px, 50%, 0px) scaleY(0)"}var a=!0,i=!1,s=void 0;try{for(var w,M=Y[Symbol.iterator]();!(a=(w=M.next()).done);a=!0){var A=w.value,j=ct("easeInOutQuad",(k-A._movementStartTimestampX)/A._movementDurationX),H=A._originX-(A._originX-A._targetX)*j;k>=A._movementStartTimestampX+A._movementDurationX&&(A._originX=H,A._targetX=Math.random()*O*(A._targetX>0?-1:1),A._movementDurationX=q+Math.random()*(D-q),A._movementStartTimestampX=k);var Q=ct("easeInOutQuad",(k-A._movementStartTimestampY)/A._movementDurationY),V=A._originY-(A._originY-A._targetY)*Q;k>=A._movementStartTimestampY+A._movementDurationY&&(A._originY=V,A._targetY=Math.random()*O*(A._targetY>0?-1:1),A._movementDurationY=q+Math.random()*(D-q),A._movementStartTimestampY=k),A.style.transform="translate3d("+H+"px, "+V+"px, 0px)"}}catch(t){i=!0,s=t}finally{try{a||null==M.return||M.return()}finally{if(i)throw s}}var C=!0,L=!1,B=void 0;try{for(var P,R=E[Symbol.iterator]();!(C=(P=R.next()).done);C=!0){var W=P.value;W._active&&W._targetOffsetXMultiplier>.01&&(W._targetOffsetXMultiplier=.75*W._targetOffsetXMultiplier),!W._active&&!W._transitioning&&W._targetOffsetXMultiplier<.99&&(W._targetOffsetXMultiplier=(3*W._targetOffsetXMultiplier+1)/4);var N=W.getBoundingClientRect(),F=Math.max(0,Math.min(e,N.bottom+.2*e))/e;W.style.transform="translate3d("+W._targetOffsetX*W._targetOffsetXMultiplier*100*(1-F)*ct("easeInQuad",1-F)+"vw, 0px, 0px)"}}catch(t){L=!0,B=t}finally{try{C||null==R.return||R.return()}finally{if(L)throw B}}(x=(9*x+T)/10)<.1&&(x=0),S.style.transform="translate3d(0px, "+-1*x+"px, 0px)";var z,G=!0,J=!1,K=void 0;try{for(var U,Z=X[Symbol.iterator]();!(G=(U=Z.next()).done);G=!0){var $=U.value,tt=(z=void 0,(z=$.getBoundingClientRect()).top<=e&&z.top>=-z.height);!tt||void 0!==$._inViewport&&$._inViewport?tt||void 0!==$._inViewport&&!$._inViewport||($._inViewport=!1,$.setAttribute("data-in-viewport","false")):($._inViewport=!0,$.setAttribute("data-in-viewport","true"))}}catch(t){J=!0,K=t}finally{try{G||null==Z.return||Z.return()}finally{if(J)throw K}}I=n,window.requestAnimationFrame(t)}),Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest||(Element.prototype.closest=function(t){var e=this;do{if(e.matches(t))return e;e=e.parentElement||e.parentNode}while(null!==e&&1===e.nodeType);return null})}();</script>
+
+  <script>
+    if (window.location.search == '?debug') {
+      (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    }
+  </script>
+</body>
+</html>

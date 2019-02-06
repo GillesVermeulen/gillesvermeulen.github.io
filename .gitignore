@@ -1,0 +1,6 @@
+# Custom
+_WORK/
+temp/
+
+# Dependency directories
+node_modules/
