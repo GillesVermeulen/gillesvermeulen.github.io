@@ -147,8 +147,8 @@ p:last-child {
   height: 0;
   padding-bottom: 90%;
   background: url(static/imgs/head_merged_opt.gif) transparent no-repeat left bottom;
-  background-size: 90vmin auto;
-  background-size: calc(var(--vmin, 1vmin) * 90) auto;
+  background-size: 90vmin 92.028vmin;
+  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
 }
 
 .pupil {
@@ -176,8 +176,8 @@ p:last-child {
   background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
   background-position: -20vmin -84.4vmin;
   background-position: calc(var(--vmin, 1vmin) * -20) calc(var(--vmin, 1vmin) * -84.4);
-  background-size: 90vmin auto;
-  background-size: calc(var(--vmin, 1vmin) * 90) auto;
+  background-size: 90vmin 92.028vmin;
+  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
 }
 
 .eyelid {
@@ -223,8 +223,8 @@ p:last-child {
   width: 128%;
   height: 0;
   padding-bottom: 23%;
-  background-size: 90vmin auto;
-  background-size: calc(var(--vmin, 1vmin) * 90) auto;
+  background-size: 90vmin 92.028vmin;
+  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
   background-repeat: no-repeat;
   background-color: transparent;
   transform: translate3d(0px, -50%, 0px);
