@@ -285,7 +285,7 @@
 
     project.querySelector('.description__inner').scrollTop = 0;
 
-    document.addEventListener('click', clickWhenProjectActiveHandler);
+    scrollOuterWrapperElement.addEventListener('click', clickWhenProjectActiveHandler);
   }
 
   function scrollToActiveProject() {
@@ -304,7 +304,7 @@
     }, 400);
     document.body.setAttribute('data-project-active', 'false');
 
-    document.removeEventListener('click', clickWhenProjectActiveHandler);
+    scrollOuterWrapperElement.removeEventListener('click', clickWhenProjectActiveHandler);
   }
 
   function clickWhenProjectActiveHandler(e) {
