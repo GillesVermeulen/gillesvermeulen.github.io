@@ -223,6 +223,7 @@ p:last-child {
   width: 128%;
   height: 0;
   padding-bottom: 23%;
+  background-image: url(static/imgs/head_merged_opt.gif);
   background-size: 90vmin 92.028vmin;
   background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
   background-repeat: no-repeat;
@@ -239,13 +240,11 @@ p:last-child {
 }
 
 #eye-left .eyebrow {
-  background-image: url(static/imgs/head_merged_opt.gif);
   background-position: -19.3vmin -74.5vmin;
   background-position: calc(var(--vmin, 1vmin) * -19.3) calc(var(--vmin, 1vmin) * -74.5);
 }
 
 #eye-right .eyebrow {
-  background-image: url(static/imgs/head_merged_opt.gif);
   background-position: -19.3vmin -79.6vmin;
   background-position: calc(var(--vmin, 1vmin) * -19.3) calc(var(--vmin, 1vmin) * -79.6);
 }
