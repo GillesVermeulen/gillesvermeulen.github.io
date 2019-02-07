@@ -1,8 +1,9 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const inlinesource = require('gulp-inline-source');
+const inlineSource = require('gulp-inline-source');
 const watch = require('gulp-watch');
 const clean = require('gulp-clean');
+const htmlMin = require('gulp-htmlmin');
 
 gulp.task('copy', function(){
   return gulp.src(['src/index.html', 'src/script.js', 'src/style.css'])
@@ -29,7 +30,20 @@ gulp.task('script', function(){
 
 gulp.task('inline', function(){
   return gulp.src('temp/index.html')
-    .pipe(inlinesource())
+    .pipe(inlineSource({
+      "compress": false
+    }))
+    .pipe(gulp.dest('temp'));
+});
+
+gulp.task('minify', function(){
+  return gulp.src('temp/index.html')
+    .pipe(htmlMin({
+      collapseWhitespace: true,
+      removeComments: true,
+      minifyCSS: true,
+      minifyJS: true
+    }))
     .pipe(gulp.dest('./'));
 });
 
@@ -38,7 +52,7 @@ gulp.task('clean', function(){
     .pipe(clean());
 });
 
-gulp.task('build', gulp.series('copy', 'script', 'inline', 'clean'));
+gulp.task('build', gulp.series('copy', 'script', 'inline', 'minify', 'clean'));
 
 gulp.task('default', function () {
   return watch('src/**/*', gulp.series('build'));

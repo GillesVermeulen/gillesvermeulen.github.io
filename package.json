@@ -5,6 +5,7 @@
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-inline-source": "^4.0.0",
     "gulp-watch": "^5.0.1"
   }
