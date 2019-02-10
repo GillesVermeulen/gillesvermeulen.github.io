@@ -187,10 +187,10 @@ p:last-child {
   top: 0;
   width: 100%;
   background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
-  background-position: -50vmin -45min;
+  background-position: -50vmin -45vmin;
   background-position: calc(var(--vmin, 1vmin) * -50) calc(var(--vmin, 1vmin) * -45);
-  background-size: 150vmin auto;
-  background-size: calc(var(--vmin, 1vmin) * 150) auto;
+  background-size: 150vmin 153.38vmin;
+  background-size: calc(var(--vmin, 1vmin) * 150) calc(var(--vmin, 1vmin) * 153.38);
   height: 100%;
   transform: scaleY(.45);
   transform-origin: center top;

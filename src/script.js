@@ -45,9 +45,13 @@
   let contentTargetOffset = 0;
 
   const contentPartsElements = document.querySelectorAll('#intro, #outro, .project');
+  const numberOfContentPartsElements = contentPartsElements.length;
   const projectElements = document.querySelectorAll('.project');
+  const numberOfProjectElements = projectElements.length;
   const projectTriggerElements = document.querySelectorAll('.project .image-container > a');
+  const numberOfProjectTriggerElements = projectTriggerElements.length;
   const floatingTextElements = document.querySelectorAll('.project > .title');
+  const numberOfFloatingTextElements = floatingTextElements.length;
   const maxProjectMovementOffset = 30;
   const minProjectMovementDuration = 2000;
   const maxProjectMovementDuration = 3000;
@@ -75,7 +79,8 @@
   }
 
   let even = true;
-  for (let projectElement of projectElements) {
+  for (let i = 0; i < numberOfProjectElements; i++) {
+    let projectElement = projectElements[i];
     projectElement._active = false;
     projectElement._transitioning = false;
     projectElement._targetOffsetX = (.3 + (Math.random() * .4)) * (even ? -1 : 1);
@@ -83,11 +88,12 @@
     even = !even;
   }
 
-  for (let projectTriggerElement of projectTriggerElements) {
-    projectTriggerElement.addEventListener('click', projectClickHandler);
+  for (let i = 0; i < numberOfProjectTriggerElements; i++) {
+    projectTriggerElements[i].addEventListener('click', projectClickHandler);
   }
   
-  for (let floatingTextElement of floatingTextElements) {
+  for (let i = 0; i < numberOfFloatingTextElements; i++) {
+    let floatingTextElement = floatingTextElements[i];
     floatingTextElement._originX = -maxProjectMovementOffset + Math.random() * 2 * maxProjectMovementOffset;
     floatingTextElement._originY = -maxProjectMovementOffset + Math.random() * 2 * maxProjectMovementOffset;
     floatingTextElement._targetX = -maxProjectMovementOffset + Math.random() * 2 * maxProjectMovementOffset;
@@ -196,7 +202,8 @@
       scalpBottomElement.style.transform = 'translate3d(0px, 50%, 0px) scaleY('+ Math.min(scalpBottom / viewportHeight, 1) +')';
     }
 
-    for (let floatingTextElement of floatingTextElements) {
+    for (let i = 0; i < numberOfFloatingTextElements; i++) {
+      let floatingTextElement = floatingTextElements[i];
       let easeFactorX = calculateEaseFactor('easeInOutQuad', (adjustedTimestamp - floatingTextElement._movementStartTimestampX) / floatingTextElement._movementDurationX);
       let targetX = floatingTextElement._originX - ((floatingTextElement._originX - floatingTextElement._targetX) * easeFactorX);
       if (adjustedTimestamp >= floatingTextElement._movementStartTimestampX + floatingTextElement._movementDurationX) {
@@ -218,7 +225,8 @@
       floatingTextElement.style.transform = 'translate3d('+ targetX +'px, '+ targetY +'px, 0px)';
     }
 
-    for (let projectElement of projectElements) {
+    for (let i = 0; i < numberOfProjectElements; i++) {
+      let projectElement = projectElements[i];
       if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * .75; 
       if (!projectElement._active && !projectElement._transitioning && projectElement._targetOffsetXMultiplier < 0.99) projectElement._targetOffsetXMultiplier = (projectElement._targetOffsetXMultiplier * 3 + 1) / 4;
       let projectBoundingClientRect = projectElement.getBoundingClientRect();
@@ -230,7 +238,8 @@
     if (contentOffset < 0.1) contentOffset = 0;
     contentElement.style.transform = 'translate3d(0px, '+ (contentOffset * -1) +'px, 0px)';
 
-    for (let contentPartsElement of contentPartsElements) {
+    for (let i = 0; i < numberOfContentPartsElements; i++) {
+      let contentPartsElement = contentPartsElements[i];
       let inViewport = isInViewport(contentPartsElement, true);
       if (inViewport && (typeof contentPartsElement._inViewport === 'undefined' || !contentPartsElement._inViewport)) {
         contentPartsElement._inViewport = true;
