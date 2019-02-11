@@ -732,9 +732,10 @@ html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title 
   font-family: 'Kreon';
   font-style: normal;
   font-weight: 400;
+  font-display: block;
   src: local('Kreon Regular'), local('Kreon-Regular'),
-       url('static/fonts/kreon-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('static/fonts/kreon-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('static/fonts/kreon-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('static/fonts/kreon-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* kreon-700 - latin */
@@ -742,7 +743,8 @@ html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title 
   font-family: 'Kreon';
   font-style: normal;
   font-weight: 700;
+  font-display: block;
   src: local('Kreon Bold'), local('Kreon-Bold'),
-       url('static/fonts/kreon-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('static/fonts/kreon-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('static/fonts/kreon-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('static/fonts/kreon-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
