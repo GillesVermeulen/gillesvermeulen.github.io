@@ -22,6 +22,12 @@ body[data-detached="true"] {
   background-color: #62ebc8;
 }
 
+::-moz-selection,
+::selection {
+  background: #ffbe92;
+  color: #33977e;
+}
+
 #scroll-outer-wrapper {
   box-sizing: border-box;
   position: absolute;
