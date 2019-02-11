@@ -84,7 +84,7 @@ p:last-child {
 .pupil__inner,
 .eyeball,
 .eyelid,
-.eyebrow {
+.eyebrow__inner {
   background-image: url(static/imgs/head_merged.gif);
 }
 
@@ -173,10 +173,7 @@ p:last-child {
   width: 40%;
   height: 44.5%;
 
-  animation-name: pupil-movement;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-  animation-duration: 6s;
+  animation: pupil-movement 6s ease-out infinite;
 }
 
 .pupil__inner {
@@ -195,10 +192,8 @@ p:last-child {
 }
 
 .eyelid {
-  transition: transform .1s ease-out;
   position: absolute;
   left: 0;
-  top: 0;
   width: 100%;
   background-repeat: no-repeat;
   background-position: -50vmin -45vmin;
@@ -206,8 +201,20 @@ p:last-child {
   background-size: 150vmin auto;
   background-size: calc(var(--vmin, 1vmin) * 150) auto;
   height: 100%;
+}
+
+.eyelid--top {
+  transition: transform .1s ease-out;
+  top: 0;
   transform: scaleY(.45);
   transform-origin: center top;
+}
+
+.eyelid--bottom {
+  opacity: 0;
+  bottom: 0;
+  transform: scaleY(.15);
+  transform-origin: center bottom;
 }
 
 .closed-eyelids {
@@ -223,10 +230,7 @@ p:last-child {
   background-size: contain;
   opacity: 0;
 
-  animation-name: closed-eyelids;
-  animation-timing-function: step-end;
-  animation-iteration-count: infinite;
-  animation-duration: 6s;
+  animation: closed-eyelids 6s step-end infinite;
 }
 
 .eyebrow {
@@ -237,11 +241,19 @@ p:last-child {
   width: 128%;
   height: 0;
   padding-bottom: 23%;
+  transform: translate3d(0px, -50%, 0px);
+}
+
+.eyebrow__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: 90vmin auto;
   background-size: calc(var(--vmin, 1vmin) * 90) auto;
   background-repeat: no-repeat;
   background-color: transparent;
-  transform: translate3d(0px, -50%, 0px);
 }
 
 #eye-left .closed-eyelids {
@@ -252,14 +264,20 @@ p:last-child {
   background-image: url(static/imgs/closed_eyelids_right.gif);
 }
 
-#eye-left .eyebrow {
+#eye-left .eyebrow__inner {
   background-position: -19.3vmin -74.5vmin;
   background-position: calc(var(--vmin, 1vmin) * -19.3) calc(var(--vmin, 1vmin) * -74.5);
 }
 
-#eye-right .eyebrow {
+#eye-right .eyebrow__inner {
   background-position: -19.3vmin -79.6vmin;
   background-position: calc(var(--vmin, 1vmin) * -19.3) calc(var(--vmin, 1vmin) * -79.6);
+
+  animation: twitchy-eyebrow 12s step-end infinite;
+}
+
+#eye-right .eyelid--bottom {
+  animation: twitchy-eyelid 12s step-end infinite;
 }
 
 #scalp {
@@ -306,13 +324,20 @@ body[data-project-active="true"] #content {
   z-index: 2;
 }
 
+[data-emotional-state="bored"] #eye-right .eyebrow__inner {
+  transform: none !important;
+}
+[data-emotional-state="bored"] #eye-right .eyelid--bottom {
+  opacity: 0 !important;
+}
+
 [data-emotional-state="startled"] .pupil__inner {
   transform: scale(.75);
 }
 [data-emotional-state="startled"] .eyebrow {
   transform: translate3d(0px, -100%, 0px);
 }
-[data-emotional-state="startled"] .eyelid {
+[data-emotional-state="startled"] .eyelid--top {
   transform: scaleY(.35);
 }
 
@@ -322,10 +347,9 @@ body[data-project-active="true"] #content {
 [data-emotional-state="horrified"] .eyebrow {
   transform: translate3d(0px, -320%, 0px);
 }
-[data-emotional-state="horrified"] .eyelid {
+[data-emotional-state="horrified"] .eyelid--top {
   transform: scaleY(0);
 }
-
 
 /**
  * Intro / outro
@@ -632,6 +656,48 @@ html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title 
     transform: translateX(75%);
   }
   100% {
+    transform: none;
+  }
+}
+
+@keyframes twitchy-eyelid {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  70.75% {
+    opacity: 1;
+  }
+  71.5% {
+    opacity: 0;
+  }
+  72.25% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 0;
+  }
+}
+
+@keyframes twitchy-eyebrow {
+  0% {
+    transform: none;
+  }
+  70% {
+    transform: none;
+  }
+  70.75% {
+    transform: translateY(50%);
+  }
+  71.5% {
+    transform: none;
+  }
+  72.25% {
+    transform: translateY(50%);
+  }
+  73% {
     transform: none;
   }
 }
