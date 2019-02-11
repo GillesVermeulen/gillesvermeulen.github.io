@@ -75,6 +75,19 @@ p:last-child {
   margin-bottom: 0;
 }
 
+/**
+ * Head
+ */
+#face,
+#scalp,
+#scalp-bottom,
+.pupil__inner,
+.eyeball,
+.eyelid,
+.eyebrow {
+  background-image: url(static/imgs/head_merged.gif);
+}
+
 #head {
   position: fixed;
   bottom: 0;
@@ -92,13 +105,14 @@ p:last-child {
 }
 
 #face {
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
+  background-repeat: no-repeat;
   background-position: center -40vmin;
   background-position: center calc(var(--vmin, 1vmin) * -40);
 }
 
 #scalp {
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat center top;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 #face,
@@ -146,9 +160,10 @@ p:last-child {
   width: 100%;
   height: 0;
   padding-bottom: 90%;
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat left bottom;
-  background-size: 90vmin 92.028vmin;
-  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 90vmin auto;
+  background-size: calc(var(--vmin, 1vmin) * 90) auto;
 }
 
 .pupil {
@@ -166,18 +181,17 @@ p:last-child {
 
 .pupil__inner {
   transition: transform .1s ease;
-
   transform-origin: center center;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
+  background-repeat: no-repeat;
   background-position: -20vmin -84.4vmin;
   background-position: calc(var(--vmin, 1vmin) * -20) calc(var(--vmin, 1vmin) * -84.4);
-  background-size: 90vmin 92.028vmin;
-  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
+  background-size: 90vmin auto;
+  background-size: calc(var(--vmin, 1vmin) * 90) auto;
 }
 
 .eyelid {
@@ -186,11 +200,11 @@ p:last-child {
   left: 0;
   top: 0;
   width: 100%;
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
+  background-repeat: no-repeat;
   background-position: -50vmin -45vmin;
   background-position: calc(var(--vmin, 1vmin) * -50) calc(var(--vmin, 1vmin) * -45);
-  background-size: 150vmin 153.38vmin;
-  background-size: calc(var(--vmin, 1vmin) * 150) calc(var(--vmin, 1vmin) * 153.38);
+  background-size: 150vmin auto;
+  background-size: calc(var(--vmin, 1vmin) * 150) auto;
   height: 100%;
   transform: scaleY(.45);
   transform-origin: center top;
@@ -223,20 +237,19 @@ p:last-child {
   width: 128%;
   height: 0;
   padding-bottom: 23%;
-  background-image: url(static/imgs/head_merged_opt.gif);
-  background-size: 90vmin 92.028vmin;
-  background-size: calc(var(--vmin, 1vmin) * 90) calc(var(--vmin, 1vmin) * 92.028);
+  background-size: 90vmin auto;
+  background-size: calc(var(--vmin, 1vmin) * 90) auto;
   background-repeat: no-repeat;
   background-color: transparent;
   transform: translate3d(0px, -50%, 0px);
 }
 
 #eye-left .closed-eyelids {
-  background-image: url(static/imgs/closed_eyelids_left_opt.gif);
+  background-image: url(static/imgs/closed_eyelids_left.gif);
 }
 
 #eye-right .closed-eyelids {
-  background-image: url(static/imgs/closed_eyelids_right_opt.gif);
+  background-image: url(static/imgs/closed_eyelids_right.gif);
 }
 
 #eye-left .eyebrow {
@@ -258,7 +271,7 @@ p:last-child {
 }
 
 #scalp-bottom {
-  background: url(static/imgs/head_merged_opt.gif) transparent no-repeat;
+  background-repeat: no-repeat;
   background-position: center -65.5vmin;
   background-position: center calc(var(--vmin, 1vmin) * -65.5);
   background-size: cover;
@@ -626,7 +639,6 @@ html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title 
 /**
  * Browser fallbacks
  */
-
 .no-css-pointer-events-support,
 .no-css-pointer-events-support body {
   height: auto !important;
