@@ -41,12 +41,16 @@ body[data-detached="true"] {
   pointer-events: auto;
 }
 
-#scroll-inner-wrapper {
-  pointer-events: none;
+body[data-project-dragging="true"] #scroll-outer-wrapper {
+  scroll-behavior: auto;
 }
 
 body[data-project-active="true"] #scroll-outer-wrapper {
   overflow-y: hidden;
+}
+
+#scroll-inner-wrapper {
+  pointer-events: none;
 }
 
 h1, h2, h3, h4 {
@@ -219,7 +223,7 @@ p:last-child {
 .eyelid--bottom {
   opacity: 0;
   bottom: 0;
-  transform: scaleY(.15);
+  transform: scaleY(.2);
   transform-origin: center bottom;
 }
 
@@ -466,12 +470,21 @@ body[data-project-active="true"] #content {
   z-index: 0;
   overflow: hidden;
   font-size: 0;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .project .image-container a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
   display: block;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  touch-action: none;
 }
 
 body[data-detached="true"] .project .image-container a {
@@ -481,6 +494,7 @@ body[data-detached="true"] .project .image-container a {
 .project .image-container img {
   width: 100%;
   height: auto;
+  pointer-events: none;
 }
 
 .project .description-container {

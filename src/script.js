@@ -90,7 +90,13 @@
 
   for (let i = 0; i < numberOfProjectTriggerElements; i++) {
     projectTriggerElements[i].addEventListener('click', projectClickHandler);
+    projectTriggerElements[i].addEventListener('wheel', projectWheelHandler);
+    projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler);
   }
+
+  document.addEventListener('pointermove', documentPointerMoveHandler);
+  document.addEventListener('pointerup', documentPointerUpHandler);
+  document.addEventListener('pointerleave', documentPointerUpHandler);
   
   for (let i = 0; i < numberOfFloatingTextElements; i++) {
     let floatingTextElement = floatingTextElements[i];
@@ -166,7 +172,7 @@
   function tickHandler(timestamp) {
     adjustedTimestamp += Math.min(timestamp - previousTimestamp, 50);
 
-    scalpBottom = ((scalpBottom * 8 + scalpTargetBottom) / 9);
+    scalpBottom = ((scalpBottom * 6 + scalpTargetBottom) / 7);
     
     if (scalpBottom <= viewportHeight) {    
       scalpElement.style.transform = 'translate3d(0px, '+ (scalpBottom * -1) +'px, 0px)';
@@ -234,7 +240,7 @@
       projectElement.style.transform = 'translate3d('+ (projectElement._targetOffsetX * projectElement._targetOffsetXMultiplier * 100 * (1 - verticalPositionRelativeToViewport) * calculateEaseFactor('easeInQuad', (1 - verticalPositionRelativeToViewport))) +'vw, 0px, 0px)';
     }
 
-    contentOffset = (contentOffset * 9 + contentTargetOffset) / 10;
+    contentOffset = (contentOffset * 6 + contentTargetOffset) / 7;
     if (contentOffset < 0.1) contentOffset = 0;
     contentElement.style.transform = 'translate3d(0px, '+ (contentOffset * -1) +'px, 0px)';
 
@@ -266,6 +272,9 @@
 
   function projectClickHandler(e) {
     e.preventDefault();
+
+    if (typeof e.target._dragTresholdExceeded !== 'undefined' && e.target._dragTresholdExceeded) return false;
+
     let project = e.target.closest('.project');
     let currentlyActive = project.getAttribute('data-active');
 
@@ -273,7 +282,38 @@
       activateProject(project);
     } else {
       deactivateProject(project);
-    }  
+    }
+  }
+
+  function projectWheelHandler(e) {
+    scrollElement.scrollTop += Math.sign(e.deltaY) * viewportHeight * .15;
+  }
+
+  function projectPointerDownHandler(e) {
+    e.preventDefault();
+
+    if (!activeProject) {
+      e.target._dragTresholdExceeded = false;
+      e.target._dragInitialClientY = e.clientY;
+      e.target._dragInitialScrollTop = scrollElement.scrollTop;
+      e.target._allowDragging = true;
+    }
+  }
+
+  function documentPointerMoveHandler(e) {
+    if (typeof e.target._allowDragging !== 'undefined' && e.target._allowDragging) {
+      scrollElement.scrollTop = e.target._dragInitialScrollTop + (e.target._dragInitialClientY - e.clientY);
+
+      if (!e.target._dragTresholdExceeded && Math.abs(e.target._dragInitialClientY - e.clientY) > 10) {
+        e.target._dragTresholdExceeded = true;
+        document.body.setAttribute('data-project-dragging', 'true');
+      }
+    }
+  }
+
+  function documentPointerUpHandler(e) {
+    e.target._allowDragging = false;
+    document.body.setAttribute('data-project-dragging', 'false');
   }
 
   function activateProject(project) {
