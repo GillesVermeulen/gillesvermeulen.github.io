@@ -66,6 +66,11 @@
   let scrollListenerTarget = scrollOuterWrapperElement;
   let scrollElement = scrollOuterWrapperElement;
 
+  let isDraggingProject = false;
+  let draggingProjectTresholdExceeded = false;
+  let draggingProjectInitialClientY = 0;
+  let draggingProjectInitialScrollTop = 0;
+
   const cssPointerEventsSupported = testCssPointerEventsSupport();
   if (!cssPointerEventsSupported) {
     document.documentElement.className += ' no-css-pointer-events-support';
@@ -273,7 +278,7 @@
   function projectClickHandler(e) {
     e.preventDefault();
 
-    if (typeof e.target._dragTresholdExceeded !== 'undefined' && e.target._dragTresholdExceeded) return false;
+    if (draggingProjectTresholdExceeded) return false;
 
     let project = e.target.closest('.project');
     let currentlyActive = project.getAttribute('data-active');
@@ -293,26 +298,26 @@
     e.preventDefault();
 
     if (!activeProject) {
-      e.target._dragTresholdExceeded = false;
-      e.target._dragInitialClientY = e.clientY;
-      e.target._dragInitialScrollTop = scrollElement.scrollTop;
-      e.target._allowDragging = true;
+      isDraggingProject = true;
+      draggingProjectTresholdExceeded = false;
+      draggingProjectInitialClientY = e.clientY;
+      draggingProjectInitialScrollTop = scrollElement.scrollTop;
     }
   }
 
   function documentPointerMoveHandler(e) {
-    if (typeof e.target._allowDragging !== 'undefined' && e.target._allowDragging) {
-      scrollElement.scrollTop = e.target._dragInitialScrollTop + (e.target._dragInitialClientY - e.clientY);
+    if (isDraggingProject) {
+      scrollElement.scrollTop = draggingProjectInitialScrollTop + (draggingProjectInitialClientY - e.clientY);
 
-      if (!e.target._dragTresholdExceeded && Math.abs(e.target._dragInitialClientY - e.clientY) > 10) {
-        e.target._dragTresholdExceeded = true;
+      if (!draggingProjectTresholdExceeded && Math.abs(draggingProjectInitialClientY - e.clientY) > 10) {
+        draggingProjectTresholdExceeded = true;
         document.body.setAttribute('data-project-dragging', 'true');
       }
     }
   }
 
   function documentPointerUpHandler(e) {
-    e.target._allowDragging = false;
+    isDraggingProject = false;
     document.body.setAttribute('data-project-dragging', 'false');
   }
 

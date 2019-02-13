@@ -282,12 +282,6 @@ p:last-child {
 #eye-right .eyebrow__inner {
   background-position: -19.3vmin -79.6vmin;
   background-position: calc(var(--vmin, 1vmin) * -19.3) calc(var(--vmin, 1vmin) * -79.6);
-
-  animation: twitchy-eyebrow 12s step-end infinite;
-}
-
-#eye-right .eyelid--bottom {
-  animation: twitchy-eyelid 12s step-end infinite;
 }
 
 #scalp {
@@ -334,11 +328,11 @@ body[data-project-active="true"] #content {
   z-index: 2;
 }
 
-[data-emotional-state="bored"] #eye-right .eyebrow__inner {
-  transform: none !important;
+[data-emotional-state="horrified"] #eye-right .eyebrow__inner {
+  animation: twitchy-eyebrow 12s step-end infinite;
 }
-[data-emotional-state="bored"] #eye-right .eyelid--bottom {
-  opacity: 0 !important;
+[data-emotional-state="horrified"] #eye-right .eyelid--bottom {
+  animation: twitchy-eyelid 12s step-end infinite;
 }
 
 [data-emotional-state="startled"] .pupil__inner {
