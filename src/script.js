@@ -306,7 +306,7 @@
       e.deltaY ? (e.deltaY * 1) * (-120) : 0
     ));
 
-    scrollElement.scrollTop -= Math.sign(delta) * viewportHeight * .15;
+    scrollElement.scrollTop -= (delta >= 0 ? 1 : -1) * viewportHeight * .15;
     wheelTimeout = setTimeout(function(){ wheelTimeout = null; }, wheelTimeoutDuration);
     e.preventDefault();
     return false;
