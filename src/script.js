@@ -71,6 +71,9 @@
   let draggingProjectInitialClientY = 0;
   let draggingProjectInitialScrollTop = 0;
 
+  var wheelTimeout = null;
+  var wheelTimeoutDuration = 100;
+
   const cssPointerEventsSupported = testCssPointerEventsSupport();
   if (!cssPointerEventsSupported) {
     document.documentElement.className += ' no-css-pointer-events-support';
@@ -96,6 +99,8 @@
   for (let i = 0; i < numberOfProjectTriggerElements; i++) {
     projectTriggerElements[i].addEventListener('click', projectClickHandler);
     projectTriggerElements[i].addEventListener('wheel', projectWheelHandler);
+    projectTriggerElements[i].addEventListener('mousewheel', projectWheelHandler);
+    projectTriggerElements[i].addEventListener('DOMMouseScroll', projectWheelHandler);
     projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler);
   }
 
@@ -291,7 +296,20 @@
   }
 
   function projectWheelHandler(e) {
-    scrollElement.scrollTop += Math.sign(e.deltaY) * viewportHeight * .15;
+    if (wheelTimeout !== null) {
+      e.preventDefault();
+      return false;
+    }
+
+    let delta = e.detail ? e.detail * (-120) : (
+      e.wheelDelta ? e.wheelDelta : (
+      e.deltaY ? (e.deltaY * 1) * (-120) : 0
+    ));
+
+    scrollElement.scrollTop -= Math.sign(delta) * viewportHeight * .15;
+    wheelTimeout = setTimeout(function(){ wheelTimeout = null; }, wheelTimeoutDuration);
+    e.preventDefault();
+    return false;
   }
 
   function projectPointerDownHandler(e) {
