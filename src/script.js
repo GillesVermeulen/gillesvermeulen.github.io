@@ -130,7 +130,7 @@
     let vh = viewportHeight * .01;
     document.documentElement.style.setProperty('--vh', vh +'px');
 
-    document.documentElement.style.height = document.body.style.height = scrollOuterWrapperElement.style.height = window.innerHeight + "px";
+    document.documentElement.style.height = document.body.style.height = scrollOuterWrapperElement.style.height = (viewportHeight - 1) + "px";
     scrollInnerWrapperElement.style.height = contentElement.offsetHeight + 'px';
 
     scrollToActiveProject();
