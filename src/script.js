@@ -34,12 +34,6 @@
 
   const eyesElement = document.querySelector('#eyes');
 
-  const eyebrowLeftElement = document.querySelector('#eye-left .eyebrow');
-  const eyebrowRightElement = document.querySelector('#eye-right .eyebrow');
-
-  const eyelidLeftElement = document.querySelector('#eye-left .eyelid');
-  const eyelidRightElement = document.querySelector('#eye-right .eyelid');
-
   const contentElement = document.querySelector('#content');
   let contentOffset = 0;
   let contentTargetOffset = 0;
@@ -71,8 +65,10 @@
   let draggingProjectInitialClientY = 0;
   let draggingProjectInitialScrollTop = 0;
 
-  var wheelTimeout = null;
-  var wheelTimeoutDuration = 100;
+  let wheelTimeout = null;
+  let wheelTimeoutDuration = 100;
+
+  let displacementMapSupported = true;
 
   const cssPointerEventsSupported = testCssPointerEventsSupport();
   if (!cssPointerEventsSupported) {
@@ -82,7 +78,12 @@
   }
 
   const isSafari = testIfSafari();
-  if (isSafari) {
+  const isAndroidFirefox = testIfAndroidFirefox();
+  if (isSafari || isAndroidFirefox) {
+    displacementMapSupported = false;
+  }
+
+  if (!displacementMapSupported) {
     document.documentElement.className += ' no-displacement-map-support';
   }
 
@@ -118,6 +119,32 @@
     floatingTextElement._movementDurationY = minProjectMovementDuration + Math.random() * (maxProjectMovementDuration - minProjectMovementDuration);
     floatingTextElement._movementStartTimestampX = Math.random() * floatingTextElement._movementDurationX;
     floatingTextElement._movementStartTimestampY = Math.random() * floatingTextElement._movementDurationY;
+  }
+
+  const intersectionObserverSupported = testIntersectionObserverSupport();
+  if (displacementMapSupported && intersectionObserverSupported) {
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    let observer = new IntersectionObserver(function(changes, observer) {
+      let numberOfChanges = changes.length;
+      for (let i = 0; i < numberOfChanges; i++) {
+        if (changes[i].intersectionRatio > 0) {
+          changes[i].target._inViewport = true;
+          changes[i].target.setAttribute('data-in-viewport', 'true');
+        } else {
+          changes[i].target._inViewport = false;
+          changes[i].target.setAttribute('data-in-viewport', 'false');
+        }
+      }
+    }, options);
+
+    for (let i = 0; i < numberOfContentPartsElements; i++) {
+      observer.observe(contentPartsElements[i]);
+    }
   }
 
   function resizeHandler(e) {
@@ -243,26 +270,30 @@
 
     for (let i = 0; i < numberOfProjectElements; i++) {
       let projectElement = projectElements[i];
-      if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * .75; 
-      if (!projectElement._active && !projectElement._transitioning && projectElement._targetOffsetXMultiplier < 0.99) projectElement._targetOffsetXMultiplier = (projectElement._targetOffsetXMultiplier * 3 + 1) / 4;
-      let projectBoundingClientRect = projectElement.getBoundingClientRect();
-      let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, projectBoundingClientRect.bottom + .2 * viewportHeight)) / viewportHeight;
-      projectElement.style.transform = 'translate3d('+ (projectElement._targetOffsetX * projectElement._targetOffsetXMultiplier * 100 * (1 - verticalPositionRelativeToViewport) * calculateEaseFactor('easeInQuad', (1 - verticalPositionRelativeToViewport))) +'vw, 0px, 0px)';
+      if (typeof projectElement._inViewport === 'undefined' || projectElement._inViewport) {
+        if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * .75; 
+        if (!projectElement._active && !projectElement._transitioning && projectElement._targetOffsetXMultiplier < 0.99) projectElement._targetOffsetXMultiplier = (projectElement._targetOffsetXMultiplier * 3 + 1) / 4;
+        let projectBoundingClientRect = projectElement.getBoundingClientRect();
+        let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, projectBoundingClientRect.bottom + .2 * viewportHeight)) / viewportHeight;
+        projectElement.style.transform = 'translate3d('+ (projectElement._targetOffsetX * projectElement._targetOffsetXMultiplier * 100 * (1 - verticalPositionRelativeToViewport) * calculateEaseFactor('easeInQuad', (1 - verticalPositionRelativeToViewport))) +'vw, 0px, 0px)';
+      }
     }
 
     contentOffset = (contentOffset * 6 + contentTargetOffset) / 7;
     if (contentOffset < 0.1) contentOffset = 0;
     contentElement.style.transform = 'translate3d(0px, '+ (contentOffset * -1) +'px, 0px)';
 
-    for (let i = 0; i < numberOfContentPartsElements; i++) {
-      let contentPartsElement = contentPartsElements[i];
-      let inViewport = isInViewport(contentPartsElement, true);
-      if (inViewport && (typeof contentPartsElement._inViewport === 'undefined' || !contentPartsElement._inViewport)) {
-        contentPartsElement._inViewport = true;
-        contentPartsElement.setAttribute('data-in-viewport', 'true');
-      } else if (!inViewport && (typeof contentPartsElement._inViewport === 'undefined' || contentPartsElement._inViewport)) {
-        contentPartsElement._inViewport = false;
-        contentPartsElement.setAttribute('data-in-viewport', 'false');
+    if (displacementMapSupported && !intersectionObserverSupported) {
+      for (let i = 0; i < numberOfContentPartsElements; i++) {
+        let contentPartsElement = contentPartsElements[i];
+        let inViewport = isInViewport(contentPartsElement, true);
+        if (inViewport && (typeof contentPartsElement._inViewport === 'undefined' || !contentPartsElement._inViewport)) {
+          contentPartsElement._inViewport = true;
+          contentPartsElement.setAttribute('data-in-viewport', 'true');
+        } else if (!inViewport && (typeof contentPartsElement._inViewport === 'undefined' || contentPartsElement._inViewport)) {
+          contentPartsElement._inViewport = false;
+          contentPartsElement.setAttribute('data-in-viewport', 'false');
+        }
       }
     }
 
@@ -419,10 +450,18 @@
     return style.pointerEvents === 'auto';
   }
 
+  function testIntersectionObserverSupport() {
+    return ('IntersectionObserver' in window);
+  }
+
   function testIfSafari() {
     return (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Opera') == -1);
   }
 
+  function testIfAndroidFirefox() {
+    var agent = navigator.userAgent.toLowerCase();
+    return (agent.indexOf('firefox') >= 0 && agent.indexOf("android") >= 0);
+  }
 
   /**
    * Polyfills
