@@ -59,6 +59,7 @@
 
   let scrollListenerTarget = scrollOuterWrapperElement;
   let scrollElement = scrollOuterWrapperElement;
+  let hasScrolled = true;
 
   let isDraggingProject = false;
   let draggingProjectTresholdExceeded = false;
@@ -105,7 +106,7 @@
   for (let i = 0; i < numberOfProjectTriggerElements; i++) {
     projectTriggerElements[i].addEventListener('click', projectClickHandler);
     projectTriggerElements[i].addEventListener(wheelEvent, projectWheelHandler, (wheelEvent == 'wheel' && passiveSupported) ? { passive: true } : false);
-    projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler);
+    projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler, passiveSupported ? { passive: true } : false);
   }
 
   document.addEventListener('pointermove', documentPointerMoveHandler, passiveSupported ? { passive: true } : false);
@@ -169,37 +170,7 @@
   resizeHandler();
 
   function scrollHandler(e) {
-    yOffset = scrollElement.scrollTop;
-
-    if (!scalpDetached && yOffset < scalpDetachmentTreshold * viewportHeight) {
-      scalpTargetBottom = yOffset * (scalpDetachmentTreshold * viewportHeight - yOffset * .5) / (scalpDetachmentTreshold * viewportHeight);
-      if (yOffset != 0) {
-        switchToEmotionalState('startled');
-
-        window.clearTimeout(autoScrollToTopTimeout);
-        autoScrollToTopTimeout = window.setTimeout(scrollToTop, autoScrollToTopTimeoutDuration);
-      } else {
-        switchToEmotionalState('bored');
-      }
-    } else {
-      if (!scalpDetached) {
-        switchToEmotionalState('horrified');
-
-        window.clearTimeout(autoScrollToTopTimeout);
-        scalpDetachmentTimestamp = adjustedTimestamp;
-        let scalpBoundingClientRect = scalpElement.getBoundingClientRect();
-        let faceBoundingClientRect  = faceElement.getBoundingClientRect();
-        scalpDetachmentScalpScaleX  = scalpBoundingClientRect.width  / scalpElement.clientWidth;
-        scalpDetachmentScalpScaleY  = scalpBoundingClientRect.height / scalpElement.clientHeight;
-        scalpDetachmentFaceScaleX   = faceBoundingClientRect.width   / faceElement.clientWidth;
-        scalpDetachmentFaceScaleY   = faceBoundingClientRect.height  / faceElement.clientHeight;
-        scalpDetached = true;
-        document.body.setAttribute('data-detached', 'true');
-      }
-      scalpTargetBottom = yOffset;
-    }
-
-    contentTargetOffset = yOffset;
+    hasScrolled = true;
   }
   scrollListenerTarget.addEventListener('scroll', scrollHandler);
   scrollHandler();
@@ -211,6 +182,42 @@
 
   function tickHandler(timestamp) {
     adjustedTimestamp += Math.min(timestamp - previousTimestamp, 50);
+
+    if (hasScrolled) {
+      hasScrolled = false;
+
+      yOffset = scrollElement.scrollTop;
+
+      if (!scalpDetached && yOffset < scalpDetachmentTreshold * viewportHeight) {
+        scalpTargetBottom = yOffset * (scalpDetachmentTreshold * viewportHeight - yOffset * .5) / (scalpDetachmentTreshold * viewportHeight);
+        if (yOffset != 0) {
+          switchToEmotionalState('startled');
+
+          window.clearTimeout(autoScrollToTopTimeout);
+          autoScrollToTopTimeout = window.setTimeout(scrollToTop, autoScrollToTopTimeoutDuration);
+        } else {
+          switchToEmotionalState('bored');
+        }
+      } else {
+        if (!scalpDetached) {
+          switchToEmotionalState('horrified');
+
+          window.clearTimeout(autoScrollToTopTimeout);
+          scalpDetachmentTimestamp = adjustedTimestamp;
+          let scalpBoundingClientRect = scalpElement.getBoundingClientRect();
+          let faceBoundingClientRect  = faceElement.getBoundingClientRect();
+          scalpDetachmentScalpScaleX  = scalpBoundingClientRect.width  / scalpElement.clientWidth;
+          scalpDetachmentScalpScaleY  = scalpBoundingClientRect.height / scalpElement.clientHeight;
+          scalpDetachmentFaceScaleX   = faceBoundingClientRect.width   / faceElement.clientWidth;
+          scalpDetachmentFaceScaleY   = faceBoundingClientRect.height  / faceElement.clientHeight;
+          scalpDetached = true;
+          document.body.setAttribute('data-detached', 'true');
+        }
+        scalpTargetBottom = yOffset;
+      }
+
+      contentTargetOffset = yOffset;
+    }
 
     scalpBottom = ((scalpBottom * 6 + scalpTargetBottom) / 7);
     
@@ -345,8 +352,6 @@
   }
 
   function projectPointerDownHandler(e) {
-    e.preventDefault();
-
     if (!activeProject) {
       isDraggingProject = true;
       draggingProjectTresholdExceeded = false;
