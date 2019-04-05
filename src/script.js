@@ -70,6 +70,11 @@
 
   let displacementMapSupported = true;
 
+  const passiveSupported = testPassiveSupport();
+  const wheelEvent = "onwheel" in document.createElement("div") ? "wheel" :
+              document.onmousewheel !== undefined ? "mousewheel" :
+              "DOMMouseScroll";
+
   const cssPointerEventsSupported = testCssPointerEventsSupport();
   if (!cssPointerEventsSupported) {
     document.documentElement.className += ' no-css-pointer-events-support';
@@ -99,15 +104,13 @@
 
   for (let i = 0; i < numberOfProjectTriggerElements; i++) {
     projectTriggerElements[i].addEventListener('click', projectClickHandler);
-    projectTriggerElements[i].addEventListener('wheel', projectWheelHandler);
-    projectTriggerElements[i].addEventListener('mousewheel', projectWheelHandler);
-    projectTriggerElements[i].addEventListener('DOMMouseScroll', projectWheelHandler);
+    projectTriggerElements[i].addEventListener(wheelEvent, projectWheelHandler, (wheelEvent == 'wheel' && passiveSupported) ? { passive: true } : false);
     projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler);
   }
 
-  document.addEventListener('pointermove', documentPointerMoveHandler);
-  document.addEventListener('pointerup', documentPointerUpHandler);
-  document.addEventListener('pointerleave', documentPointerUpHandler);
+  document.addEventListener('pointermove', documentPointerMoveHandler, passiveSupported ? { passive: true } : false);
+  document.addEventListener('pointerup', documentPointerUpHandler, passiveSupported ? { passive: true } : false);
+  document.addEventListener('pointerleave', documentPointerUpHandler, passiveSupported ? { passive: true } : false);
   
   for (let i = 0; i < numberOfFloatingTextElements; i++) {
     let floatingTextElement = floatingTextElements[i];
@@ -328,7 +331,6 @@
 
   function projectWheelHandler(e) {
     if (wheelTimeout !== null) {
-      e.preventDefault();
       return false;
     }
 
@@ -337,9 +339,8 @@
       e.deltaY ? (e.deltaY * 1) * (-120) : 0
     ));
 
-    scrollElement.scrollTop -= (delta >= 0 ? 1 : -1) * viewportHeight * .15;
+    scrollElement.scrollTop -= (delta >= 0 ? 1 : -1) * viewportHeight * .2;
     wheelTimeout = setTimeout(function(){ wheelTimeout = null; }, wheelTimeoutDuration);
-    e.preventDefault();
     return false;
   }
 
@@ -454,12 +455,27 @@
     return ('IntersectionObserver' in window);
   }
 
+  function testPassiveSupport() {
+    let passiveSupported = false;
+    try {
+      let opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+          passiveSupported = true;
+        }
+      });
+      window.addEventListener("testPassive", null, opts);
+      window.removeEventListener("testPassive", null, opts);
+    } catch (e) {}
+
+    return passiveSupported;
+  }
+
   function testIfSafari() {
     return (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Opera') == -1);
   }
 
   function testIfAndroidFirefox() {
-    var agent = navigator.userAgent.toLowerCase();
+    let agent = navigator.userAgent.toLowerCase();
     return (agent.indexOf('firefox') >= 0 && agent.indexOf("android") >= 0);
   }
 
@@ -483,4 +499,5 @@
       return null;
     };
   }
+
 }());
