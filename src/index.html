@@ -189,12 +189,10 @@
   <svg>
     <defs>
       <filter id="turbulence-filter">
-        <feTurbulence id="turbulence-filter__turbulence1" type="turbulence" baseFrequency="0.03" numOctaves="1" result="turbulence1">
+        <feTurbulence id="turbulence-filter__turbulence" type="turbulence" baseFrequency="0.03" numOctaves="1" result="turbulence">
           <animate attributeName="baseFrequency" from="0.03" to="0.04" dur="0.5s" calcMode="discrete" values="0.03;0.01;0.04" keyTimes="0;0.33333;0.66666" fill="freeze" repeatCount="indefinite" />
         </feTurbulence>
-        <feTurbulence id="turbulence-filter__turbulence2" type="turbulence" baseFrequency="0.01" numOctaves="1" result="turbulence2" />
-        <feTurbulence id="turbulence-filter__turbulence3" type="turbulence" baseFrequency="0.04" numOctaves="1" result="turbulence3" />
-        <feDisplacementMap id="turbulence-filter__displacement" in2="turbulence1" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        <feDisplacementMap id="turbulence-filter__displacement" in2="turbulence" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G" />
       </filter>
     </defs>
   </svg>
