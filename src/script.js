@@ -129,7 +129,7 @@
     let options = {
       root: null,
       rootMargin: '10%',
-      threshold: 0.2
+      threshold: 0
     };
 
     let observer = new IntersectionObserver(function(changes, observer) {
