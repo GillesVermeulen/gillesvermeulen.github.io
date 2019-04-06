@@ -4,8 +4,6 @@
   let viewportHeight = 0;
   let viewportWidth = 0;
 
-  let yOffset = 0;
-
   const scrollOuterWrapperElement = document.querySelector('#scroll-outer-wrapper');
   const scrollInnerWrapperElement = document.querySelector('#scroll-inner-wrapper');
 
@@ -34,9 +32,7 @@
   const eyesElement = document.querySelector('#eyes');
 
   const contentElement = document.querySelector('#content');
-  let contentOffset = 0;
-  let contentTargetOffset = 0;
-
+  
   const contentPartsElements = document.querySelectorAll('#intro, #outro, .project');
   const numberOfContentPartsElements = contentPartsElements.length;
   const projectElements = document.querySelectorAll('.project');
@@ -59,6 +55,10 @@
   let scrollListenerTarget = scrollOuterWrapperElement;
   let scrollElement = scrollOuterWrapperElement;
   let hasScrolled = true;
+
+  let scrollPosition = getLatestScrollPosition();
+  let contentOffset = scrollPosition;
+  let contentTargetOffset = 0;
 
   let isDraggingProject = false;
   let draggingProjectTresholdExceeded = false;
@@ -105,7 +105,7 @@
   for (let i = 0; i < numberOfProjectTriggerElements; i++) {
     projectTriggerElements[i].addEventListener('click', projectClickHandler);
     projectTriggerElements[i].addEventListener(wheelEvent, projectWheelHandler, (wheelEvent == 'wheel' && passiveSupported) ? { passive: true } : false);
-    projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler, passiveSupported ? { passive: true } : false);
+    projectTriggerElements[i].addEventListener('pointerdown', projectPointerDownHandler);
   }
 
   document.addEventListener('pointermove', documentPointerMoveHandler, passiveSupported ? { passive: true } : false);
@@ -163,6 +163,19 @@
     document.documentElement.style.height = document.body.style.height = scrollOuterWrapperElement.style.height = (viewportHeight - 1) + "px";
     scrollInnerWrapperElement.style.height = contentElement.offsetHeight + 'px';
 
+    faceElement._cachedClientWidth = faceElement.clientWidth;
+    faceElement._cachedClientHeight = faceElement.clientHeight;
+
+    scalpElement._cachedClientWidth = scalpElement.clientWidth;
+    scalpElement._cachedClientHeight = scalpElement.clientHeight;
+
+    getLatestScrollPosition();
+
+    for (let i = 0; i < numberOfProjectElements; i++) {
+      var projectBoundingClientRect = projectElements[i].getBoundingClientRect();
+      projectElements[i]._bottomOffset = contentOffset + projectBoundingClientRect.bottom;
+    }
+
     scrollToActiveProject();
   }
   window.addEventListener('resize', resizeHandler);
@@ -173,6 +186,11 @@
   }
   scrollListenerTarget.addEventListener('scroll', scrollHandler);
   scrollHandler();
+
+  function getLatestScrollPosition() {
+    scrollPosition = scrollElement.scrollTop;
+    return scrollPosition;
+  }
 
   function scrollToTop() {
     window.clearTimeout(autoScrollToTopTimeout);
@@ -185,11 +203,11 @@
     if (hasScrolled) {
       hasScrolled = false;
 
-      yOffset = scrollElement.scrollTop;
+      getLatestScrollPosition();
 
-      if (!scalpDetached && yOffset < scalpDetachmentTreshold * viewportHeight) {
-        scalpTargetBottom = yOffset * (scalpDetachmentTreshold * viewportHeight - yOffset * 0.5) / (scalpDetachmentTreshold * viewportHeight);
-        if (yOffset != 0) {
+      if (!scalpDetached && scrollPosition < scalpDetachmentTreshold * viewportHeight) {
+        scalpTargetBottom = scrollPosition * (scalpDetachmentTreshold * viewportHeight - scrollPosition * 0.5) / (scalpDetachmentTreshold * viewportHeight);
+        if (scrollPosition != 0) {
           switchToEmotionalState('startled');
 
           window.clearTimeout(autoScrollToTopTimeout);
@@ -205,17 +223,17 @@
           scalpDetachmentTimestamp = adjustedTimestamp;
           let scalpBoundingClientRect = scalpElement.getBoundingClientRect();
           let faceBoundingClientRect  = faceElement.getBoundingClientRect();
-          scalpDetachmentScalpScaleX  = scalpBoundingClientRect.width  / scalpElement.clientWidth;
-          scalpDetachmentScalpScaleY  = scalpBoundingClientRect.height / scalpElement.clientHeight;
-          scalpDetachmentFaceScaleX   = faceBoundingClientRect.width   / faceElement.clientWidth;
-          scalpDetachmentFaceScaleY   = faceBoundingClientRect.height  / faceElement.clientHeight;
+          scalpDetachmentScalpScaleX  = scalpBoundingClientRect.width  / scalpElement._cachedClientWidth;
+          scalpDetachmentScalpScaleY  = scalpBoundingClientRect.height / scalpElement._cachedClientHeight;
+          scalpDetachmentFaceScaleX   = faceBoundingClientRect.width   / faceElement._cachedClientWidth;
+          scalpDetachmentFaceScaleY   = faceBoundingClientRect.height  / faceElement._cachedClientHeight;
           scalpDetached = true;
           document.body.setAttribute('data-detached', 'true');
         }
-        scalpTargetBottom = yOffset;
+        scalpTargetBottom = scrollPosition;
       }
 
-      contentTargetOffset = yOffset;
+      contentTargetOffset = scrollPosition;
     }
 
     scalpBottom = ((scalpBottom * 6 + scalpTargetBottom) / 7);
@@ -237,7 +255,7 @@
     }
     
     if (!scalpDetached) {
-      let scaleY = (faceElement.clientHeight + scalpBottom) / faceElement.clientHeight;
+      let scaleY = (faceElement._cachedClientHeight + scalpBottom) / faceElement._cachedClientHeight;
       faceElement.style.transform = 'scale('+ ((5 + (1 / scaleY)) / 6) +', '+ scaleY +')';
       eyesElement.style.transform = 'scaleY('+ Math.pow(1 / scaleY, 0.4) +')';
       scalpElement.style.transform += ' scale('+ ((5 + (1 / scaleY)) / 6) +', '+ ((12 + scaleY) / 13) +')';
@@ -277,20 +295,19 @@
       floatingTextElement.style.transform = 'translate3d('+ targetX +'px, '+ targetY +'px, 0px)';
     }
 
+    contentOffset = (contentOffset * 6 + contentTargetOffset) / 7;
+    if (contentOffset < 0.1) contentOffset = 0;
+    contentElement.style.transform = 'translate3d(0px, '+ (contentOffset * -1) +'px, 0px)';
+
     for (let i = 0; i < numberOfProjectElements; i++) {
       let projectElement = projectElements[i];
       if (typeof projectElement._inViewport === 'undefined' || projectElement._inViewport) {
         if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * 0.75; 
         if (!projectElement._active && !projectElement._transitioning && projectElement._targetOffsetXMultiplier < 0.99) projectElement._targetOffsetXMultiplier = (projectElement._targetOffsetXMultiplier * 3 + 1) / 4;
-        let projectBoundingClientRect = projectElement.getBoundingClientRect();
-        let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, projectBoundingClientRect.bottom + 0.2 * viewportHeight)) / viewportHeight;
+        let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, (projectElement._bottomOffset - contentOffset) + 0.2 * viewportHeight)) / viewportHeight;
         projectElement.style.transform = 'translate3d('+ (projectElement._targetOffsetX * projectElement._targetOffsetXMultiplier * 100 * (1 - verticalPositionRelativeToViewport) * calculateEaseFactor('easeInQuad', (1 - verticalPositionRelativeToViewport))) +'vw, 0px, 0px)';
       }
     }
-
-    contentOffset = (contentOffset * 6 + contentTargetOffset) / 7;
-    if (contentOffset < 0.1) contentOffset = 0;
-    contentElement.style.transform = 'translate3d(0px, '+ (contentOffset * -1) +'px, 0px)';
 
     if (displacementMapSupported && !intersectionObserverSupported) {
       for (let i = 0; i < numberOfContentPartsElements; i++) {
@@ -351,6 +368,8 @@
   }
 
   function projectPointerDownHandler(e) {
+    e.preventDefault();
+
     if (!activeProject) {
       isDraggingProject = true;
       draggingProjectTresholdExceeded = false;
