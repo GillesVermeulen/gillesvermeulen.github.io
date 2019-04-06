@@ -129,7 +129,7 @@
   if (displacementMapSupported && intersectionObserverSupported) {
     let options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '10%',
       threshold: 0.2
     };
 
