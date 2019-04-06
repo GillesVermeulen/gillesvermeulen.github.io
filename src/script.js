@@ -1,6 +1,5 @@
-"use strict";
-
 (function(){
+  "use strict";
 
   let viewportHeight = 0;
   let viewportWidth = 0;
@@ -14,7 +13,7 @@
 
   const scalpElement = document.querySelector('#scalp');
   let scalpDetached = false;
-  const scalpDetachmentTreshold = .4;
+  const scalpDetachmentTreshold = 0.4;
   let scalpTargetBottom = 0;
   let scalpBottom = 0;
 
@@ -98,7 +97,7 @@
     let projectElement = projectElements[i];
     projectElement._active = false;
     projectElement._transitioning = false;
-    projectElement._targetOffsetX = (.3 + (Math.random() * .4)) * (even ? -1 : 1);
+    projectElement._targetOffsetX = (0.3 + (Math.random() * 0.4)) * (even ? -1 : 1);
     projectElement._targetOffsetXMultiplier = 1;
     even = !even;
   }
@@ -155,10 +154,10 @@
     viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    let vmin = Math.min(viewportWidth, viewportHeight) * .01;
+    let vmin = Math.min(viewportWidth, viewportHeight) * 0.01;
     document.documentElement.style.setProperty('--vmin', vmin +'px');
 
-    let vh = viewportHeight * .01;
+    let vh = viewportHeight * 0.01;
     document.documentElement.style.setProperty('--vh', vh +'px');
 
     document.documentElement.style.height = document.body.style.height = scrollOuterWrapperElement.style.height = (viewportHeight - 1) + "px";
@@ -189,7 +188,7 @@
       yOffset = scrollElement.scrollTop;
 
       if (!scalpDetached && yOffset < scalpDetachmentTreshold * viewportHeight) {
-        scalpTargetBottom = yOffset * (scalpDetachmentTreshold * viewportHeight - yOffset * .5) / (scalpDetachmentTreshold * viewportHeight);
+        scalpTargetBottom = yOffset * (scalpDetachmentTreshold * viewportHeight - yOffset * 0.5) / (scalpDetachmentTreshold * viewportHeight);
         if (yOffset != 0) {
           switchToEmotionalState('startled');
 
@@ -240,7 +239,7 @@
     if (!scalpDetached) {
       let scaleY = (faceElement.clientHeight + scalpBottom) / faceElement.clientHeight;
       faceElement.style.transform = 'scale('+ ((5 + (1 / scaleY)) / 6) +', '+ scaleY +')';
-      eyesElement.style.transform = 'scaleY('+ Math.pow(1 / scaleY, .4) +')';
+      eyesElement.style.transform = 'scaleY('+ Math.pow(1 / scaleY, 0.4) +')';
       scalpElement.style.transform += ' scale('+ ((5 + (1 / scaleY)) / 6) +', '+ ((12 + scaleY) / 13) +')';
       scalpBottomElement.style.transform = 'translate3d(0px, 50%, 0px) scaleY(0)';
     } else {
@@ -248,7 +247,7 @@
         let easeFactor = calculateEaseFactor('easeOutElastic', (adjustedTimestamp - scalpDetachmentTimestamp) / headBounceDuration);
         
         faceElement.style.transform = 'scale('+ (scalpDetachmentFaceScaleX - ((scalpDetachmentFaceScaleX - 1) * easeFactor)) +', '+ (scalpDetachmentFaceScaleY - ((scalpDetachmentFaceScaleY - 1) * easeFactor)) +')';
-        eyesElement.style.transform = 'scaleY('+ Math.pow(1 / (scalpDetachmentFaceScaleY - ((scalpDetachmentFaceScaleY - 1) * easeFactor)), .4) +')';
+        eyesElement.style.transform = 'scaleY('+ Math.pow(1 / (scalpDetachmentFaceScaleY - ((scalpDetachmentFaceScaleY - 1) * easeFactor)), 0.4) +')';
         scalpElement.style.transform += ' scale('+ (scalpDetachmentScalpScaleX - ((scalpDetachmentScalpScaleX - 1) * easeFactor)) +', '+ (scalpDetachmentScalpScaleY - ((scalpDetachmentScalpScaleY - 1) * easeFactor)) +')';
       }
 
@@ -281,10 +280,10 @@
     for (let i = 0; i < numberOfProjectElements; i++) {
       let projectElement = projectElements[i];
       if (typeof projectElement._inViewport === 'undefined' || projectElement._inViewport) {
-        if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * .75; 
+        if (projectElement._active && projectElement._targetOffsetXMultiplier > 0.01) projectElement._targetOffsetXMultiplier = projectElement._targetOffsetXMultiplier * 0.75; 
         if (!projectElement._active && !projectElement._transitioning && projectElement._targetOffsetXMultiplier < 0.99) projectElement._targetOffsetXMultiplier = (projectElement._targetOffsetXMultiplier * 3 + 1) / 4;
         let projectBoundingClientRect = projectElement.getBoundingClientRect();
-        let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, projectBoundingClientRect.bottom + .2 * viewportHeight)) / viewportHeight;
+        let verticalPositionRelativeToViewport = Math.max(0, Math.min(viewportHeight, projectBoundingClientRect.bottom + 0.2 * viewportHeight)) / viewportHeight;
         projectElement.style.transform = 'translate3d('+ (projectElement._targetOffsetX * projectElement._targetOffsetXMultiplier * 100 * (1 - verticalPositionRelativeToViewport) * calculateEaseFactor('easeInQuad', (1 - verticalPositionRelativeToViewport))) +'vw, 0px, 0px)';
       }
     }
@@ -346,7 +345,7 @@
       e.deltaY ? (e.deltaY * 1) * (-120) : 0
     ));
 
-    scrollElement.scrollTop -= (delta >= 0 ? 1 : -1) * viewportHeight * .2;
+    scrollElement.scrollTop -= (delta >= 0 ? 1 : -1) * viewportHeight * 0.2;
     wheelTimeout = setTimeout(function(){ wheelTimeout = null; }, wheelTimeoutDuration);
     return false;
   }
@@ -398,7 +397,7 @@
   }
 
   function scrollToActiveProject() {
-    if (activeProject) scrollElement.scrollTop = activeProject.offsetTop - Math.min(viewportWidth, viewportHeight) * .23;
+    if (activeProject) scrollElement.scrollTop = activeProject.offsetTop - Math.min(viewportWidth, viewportHeight) * 0.23;
   }
 
   function deactivateProject(project) {
@@ -436,14 +435,14 @@
       case 'easeOutQuad':
         return progress * (2 - progress);
       case 'easeInOutQuad':
-        return progress < .5 ? (2 * progress * progress) : (-1 + (4 - (2 * progress)) * progress);
+        return progress < 0.5 ? (2 * progress * progress) : (-1 + (4 - (2 * progress)) * progress);
     } 
   }
 
   function isInViewport(elem, debug) {
     let bounding = elem.getBoundingClientRect();
     return (bounding.top <= viewportHeight && bounding.top >= -bounding.height);
-  };
+  }
 
 
   /**
