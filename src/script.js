@@ -97,7 +97,7 @@
     let projectElement = projectElements[i];
     projectElement._active = false;
     projectElement._transitioning = false;
-    projectElement._targetOffsetX = (0.3 + (Math.random() * 0.4)) * (even ? -1 : 1);
+    projectElement._targetOffsetX = (0.3 + (Math.random() * 0.2)) * (even ? -1 : 1);
     projectElement._targetOffsetXMultiplier = 1;
     even = !even;
   }
