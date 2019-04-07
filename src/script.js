@@ -37,7 +37,7 @@
   const numberOfContentPartsElements = contentPartsElements.length;
   const projectElements = document.querySelectorAll('.project');
   const numberOfProjectElements = projectElements.length;
-  const projectTriggerElements = document.querySelectorAll('.project .image-container > a');
+  const projectTriggerElements = document.querySelectorAll('.project .image-container');
   const numberOfProjectTriggerElements = projectTriggerElements.length;
   const floatingTextElements = document.querySelectorAll('.project > .title');
   const numberOfFloatingTextElements = floatingTextElements.length;

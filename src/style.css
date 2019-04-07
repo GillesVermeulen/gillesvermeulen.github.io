@@ -464,25 +464,19 @@ body[data-project-active="true"] #content {
   z-index: 0;
   overflow: hidden;
   font-size: 0;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-}
-
-.project .image-container a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
-  display: block;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
   touch-action: none;
+  pointer-events: none;
 }
 
-body[data-detached="true"] .project .image-container a {
+body[data-detached="true"] .project .image-container {
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .project .image-container img {
@@ -628,8 +622,9 @@ body[data-project-transitioning="true"] #outro {
   opacity: 0;
 }
 
-body[data-project-active="true"] .project:not([data-active="true"]) .image-container a {
+body[data-project-active="true"] .project:not([data-active="true"]) .image-container {
   pointer-events: none;
+  cursor: default;
 }
 
 html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner *,
