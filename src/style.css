@@ -314,10 +314,13 @@ p:last-child {
 #content {
   transition: z-index 0s step-start .3s;
   position: fixed;
-  width: 100%;
+  width: 90vmin;
+  width: calc(var(--vmin, 1vmin) * 90);
   left: 0;
   right: 0;
   top: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   z-index: 0;
 }
@@ -575,8 +578,12 @@ body[data-detached="true"] .project .image-container {
   margin-bottom: .25em;
 }
 
+.project[data-in-viewport="false"] .title,
 .project[data-active="true"] .title {
   transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.project[data-active="true"] .title {
   color: #51c9ab;
   text-shadow: none;
 }

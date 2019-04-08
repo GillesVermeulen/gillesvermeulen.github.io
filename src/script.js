@@ -125,10 +125,10 @@
   }
 
   const intersectionObserverSupported = testIntersectionObserverSupport();
-  if (displacementMapSupported && intersectionObserverSupported) {
+  if (intersectionObserverSupported) {
     let options = {
       root: null,
-      rootMargin: '10%',
+      rootMargin: '15%',
       threshold: 0
     };
 
@@ -309,7 +309,7 @@
       }
     }
 
-    if (displacementMapSupported && !intersectionObserverSupported) {
+    if (!intersectionObserverSupported) {
       for (let i = 0; i < numberOfContentPartsElements; i++) {
         let contentPartsElement = contentPartsElements[i];
         let inViewport = isInViewport(contentPartsElement, true);
