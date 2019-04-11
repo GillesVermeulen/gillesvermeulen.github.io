@@ -22,6 +22,11 @@ body[data-detached="true"] {
   background-color: #62ebc8;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 ::-moz-selection,
 ::selection {
   background: #ffbe92;
@@ -418,6 +423,37 @@ body[data-project-active="true"] #content {
   background: url(static/imgs/envelope.gif) transparent no-repeat center/contain;
 }
 
+#outro a {
+  pointer-events: auto;
+}
+
+.links {
+  margin-top: 2em;
+}
+
+.links .link {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -99em;
+  white-space: nowrap;
+  background: url(static/imgs/icons.gif) transparent no-repeat center center;
+  background-size: cover;
+  width: 3em;
+  height: 2.655em;
+}
+
+.links .link--youtube {
+  background-position: left center;
+}
+
+.links .link--instagram {
+  background-position: center center;
+}
+
+.links .link--graphics {
+  background-position: right center;
+}
+
 /**
  * Projects
  */
@@ -634,8 +670,9 @@ body[data-project-active="true"] .project:not([data-active="true"]) .image-conta
   cursor: default;
 }
 
-html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner *,
-html:not(.no-displacement-map-support) #outro[data-in-viewport="true"] .inner *,
+html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner h1,
+html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner h2,
+html:not(.no-displacement-map-support) #outro[data-in-viewport="true"] .inner h2,
 html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title {
   filter: url(#turbulence-filter);
 }
