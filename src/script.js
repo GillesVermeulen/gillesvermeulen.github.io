@@ -494,7 +494,7 @@
   }
 
   function testIfSafari() {
-    return (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Opera') == -1);
+    return ((navigator.userAgent.indexOf('Safari') != -1 || navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1) && navigator.userAgent.indexOf('Chrome') == -1 && navigator.userAgent.indexOf('Opera') == -1);
   }
 
   function testIfAndroidFirefox() {
