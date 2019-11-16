@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}">
+<head>
+  {% if global.alternativeLanguages|length > 0 %}
+  <script>
+    if (window.location.search != '?forceLang') {
+      var userLang = navigator.language || navigator.userLanguage;
+      {% for alternativeLanguage in global.alternativeLanguages %}
+      {% if alternativeLanguage.autoRedirect %}
+      if (userLang.indexOf('{{ alternativeLanguage.lang }}') > -1) window.location = "{{ alternativeLanguage.path }}";
+      {% endif %}
+      {% endfor %}
+    }    
+  </script>
+  {% endif %}
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134089896-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134089896-1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>{{ meta.title }}</title>
+
+  <base href="{{ global.basePath }}">
+
+  <meta name="description" content="{{ meta.description }}">
+  <meta name="image" content="https://gillesvermeulen.be/static/imgs/social_image.png">
+  <meta name="thumbnail" content="https://gillesvermeulen.be/static/imgs/social_image.png" />
+  <meta itemprop="name" content="{{ meta.title }}">
+  <meta itemprop="description" content="{{ meta.description }}">
+  <meta itemprop="image" content="https://gillesvermeulen.be/static/imgs/social_image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ meta.title }}">
+  <meta name="twitter:description" content="{{ meta.description }}">
+  <meta name="twitter:creator" content="@GillesVermeulen">
+  <meta name="twitter:image:src" content="https://gillesvermeulen.be/static/imgs/social_image.png">
+  <meta property="og:title" content="{{ meta.title }}">
+  <meta property="og:description" content="{{ meta.description }}">
+  <meta property="og:image" content="https://gillesvermeulen.be/static/imgs/social_image.png">
+  <meta property="og:site_name" content="{{ meta.title }}">
+  <meta property="og:locale" content="{{ meta.locale }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gillesvermeulen.be/">
+
+  <link rel="stylesheet" href="{{ global.basePath }}style.css" inline>
+</head>
+<body>
+  <div id="scroll-outer-wrapper">
+    <div id="scroll-inner-wrapper">
+    </div>
+  </div>
+
+  {% if global.alternativeLanguages|length > 0 %}
+  <div id="language-selector">
+    {% for alternativeLanguage in global.alternativeLanguages %}
+    <a href="{{ alternativeLanguage.path }}?forceLang" lang="{{ alternativeLanguage.lang }}" title="{{ alternativeLanguage.title }}">{{ alternativeLanguage.lang }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div id="content">
+    <section id="intro">
+      <div class="inner">
+        <h1>{{ global.title }}</h1>
+        <h2>{{ global.subtitle }}</h2>
+      </div>
+    </section>
+    
+    <section id="projects">
+      {% for project in projects %}
+      <article class="project">
+        <div class="image-container"><img src="static/imgs/projects/{{ project.image }}" alt="{{ project.title|replace({"<br>":' '}) }}" /></div>
+        <h2 class="title">{{ project.title }}</h2>
+        <div class="description-container">
+          <div class="description">
+            <div class="description__inner">
+              <h3 class="keywords">{{ project.keywords }}</h3>
+              {{ project.description }}
+              <div class="credits">
+                {% for creditsName, creditsValue in project.credits %}
+                <h3>{{ creditsName }}</h3>
+                {{ creditsValue }}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+
+    <section id="outro">
+      <div class="inner">
+        <h2>
+          {{ global.contactMe }}<br>
+          <a href="mailto:&#103;&#105;&#108;&#108;&#101;&#115;&#118;&#101;&#114;&#109;&#101;&#117;&#108;&#101;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#103;&#105;&#108;&#108;&#101;&#115;&#118;&#101;&#114;&#109;&#101;&#117;&#108;&#101;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>
+        </h2>
+        <div class="links">
+          <a class="link link--youtube" href="https://www.youtube.com/gillesvermeulen">Gilles Vermeulen - Youtube</a>
+          <a class="link link--instagram" href="https://www.instagram.com/gillesvermeulen/">Gilles Vermeulen - Instagram</a>
+          <a class="link link--graphics" href="https://kong.fo/">Kong Fo - Grafisch werk</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="head" data-emotional-state="bored">
+    <div id="scalp">
+      <div id="scalp-bottom"></div>
+    </div>
+    <div id="face">
+      <div id="eyes">
+        <div id="eye-left" class="eye"><div class="eyeball"></div><div class="pupil"><div class="pupil__inner"></div></div><div class="eyelid eyelid--top"></div><div class="eyelid eyelid--bottom"></div><div class="closed-eyelids"></div><div class="eyebrow"><div class="eyebrow__inner"></div></div></div>
+        <div id="eye-right" class="eye"><div class="eyeball"></div><div class="pupil"><div class="pupil__inner"></div></div><div class="eyelid eyelid--top"></div><div class="eyelid eyelid--bottom"></div><div class="closed-eyelids"></div><div class="eyebrow"><div class="eyebrow__inner"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <svg>
+    <defs>
+      <filter id="turbulence-filter">
+        <feTurbulence id="turbulence-filter__turbulence" type="turbulence" baseFrequency="0.03" numOctaves="1" result="turbulence">
+          <animate attributeName="baseFrequency" from="0.03" to="0.04" dur="0.5s" calcMode="discrete" values="0.03;0.01;0.04" keyTimes="0;0.33333;0.66666" fill="freeze" repeatCount="indefinite" />
+        </feTurbulence>
+        <feDisplacementMap id="turbulence-filter__displacement" in2="turbulence" in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="{{ global.basePath }}script.js" inline></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "image": "https://gillesvermeulen.be/static/imgs/gilles_vermeulen.png",
+      "jobTitle": "Creative Developer",
+      "name": "Gilles Vermeulen",
+      "alumniOf": "KHLim",
+      "nationality": "Belgian",
+      "url": "https://gillesvermeulen.be",
+      "sameAs" : [
+        "https://www.youtube.com/gillesvermeulen",
+        "https://www.instagram.com/gillesvermeulen/",
+        "https://kong.fo/"
+      ]
+    }
+  </script>
+
+  <script>
+    if (window.location.search == '?debug') {
+      (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    }
+  </script>
+</body>
+</html>

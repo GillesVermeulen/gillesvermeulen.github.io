@@ -92,6 +92,10 @@
     document.documentElement.className += ' no-displacement-map-support';
   }
 
+  if (window.location.search == '?forceLang') {
+    window.history.replaceState(null, null, window.location.pathname);
+  }
+
   let even = true;
   for (let i = 0; i < numberOfProjectElements; i++) {
     let projectElement = projectElements[i];

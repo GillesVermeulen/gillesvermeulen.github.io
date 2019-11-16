@@ -670,10 +670,31 @@ body[data-project-active="true"] .project:not([data-active="true"]) .image-conta
   cursor: default;
 }
 
+#language-selector {
+  pointer-events: auto;
+  z-index: 10;
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+}
+
+#language-selector a {
+  font-size: 0.85rem;
+  background-color: #33977e;
+  border-radius: 100%;
+  display: inline-block;
+  text-transform: uppercase;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+}
+
 html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner h1,
 html:not(.no-displacement-map-support) #intro[data-in-viewport="true"] .inner h2,
 html:not(.no-displacement-map-support) #outro[data-in-viewport="true"] .inner h2,
-html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title {
+html:not(.no-displacement-map-support) .project[data-in-viewport="true"] .title,
+html:not(.no-displacement-map-support) #language-selector a {
   filter: url(#turbulence-filter);
 }
 
