@@ -80,7 +80,7 @@
     <section id="projects">
       {% for project in projects %}
       <article class="project">
-        <div class="image-container"><img src="static/imgs/projects/{{ project.image }}" alt="{{ project.title|replace({"<br>":' '}) }}" /></div>
+        <div class="image-container" data-project="{{ project.id }}"><img src="static/imgs/projects/{{ project.image }}" alt="{{ project.title|replace({"<br>":' '}) }}" /></div>
         <h2 class="title">{{ project.title }}</h2>
         <div class="description-container">
           <div class="description">

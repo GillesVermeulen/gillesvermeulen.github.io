@@ -21,6 +21,7 @@
   },
   "projects": [
     {
+      "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animation",
       "description": "<p>In cooperation with Ketnet, William Boeva created a TV show about video games, named \"Boeva & the games\". Ketnet asked us to develop a matching game, in which the player gets to experience a wide range of game types and gaming eras. The result is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/4/index.html\">\"Boeva the Game\"</a>: an ode to video games, made in HTML5 and playable on many modern devices, from a desktop to your mobile phone.</p>",
@@ -33,7 +34,8 @@
       }
     },
     {
-      "title": "Kaatje van Ketnet",
+      "id": "kaatje-van-ketnet",
+      "title": "Ketnet's Kaatje",
       "keywords": "Development, Animation",
       "description": "<p>Since 2011 I've been closely involved with the development of Kaatje's digital presence. During this trajectory, I've played an important role in building the fundamentals and a majority of the diverse games.</p><p>You can see Kaatje in action <a href=\"http://kaatje.ketnet.be/html/\">in your browser</a> or on your tablet and smartphone, via the <a href=\"https://www.ketnet.be/kaatje-voor-ouders/kaatje-van-ketnet-app\">\"Kaatje van Ketnet\"</a> or the <a href=\"https://www.ketnet.be/ketnet-jr/over-de-app\">\"Ketnet Jr\"</a> app.</p>",
       "image": "kaatje.gif",
@@ -45,6 +47,7 @@
       }
     },
     {
+      "id": "hbvl-staar-waars",
       "title": "HBvL<br>Staar Waars",
       "keywords": "Concept, Design, Development, Animation",
       "description": "<p>In 2015, Disney introduced us to a new chapter in the Star Wars saga. In honor of this joyous occasion, \"Het Belang van Limburg\" wanted to create an interactive Star Wars experience with a local twist. The result is <a href=\"http://staarwaars.hbvl.be/\">an interactive Darth Vader clone</a>, who will say aloud anything you type.</p><p>I provided the design and creation of the 3D model, as well as the code, animations and the link with the external text-to-speech service.</p>",
@@ -57,6 +60,7 @@
       }
     },
     {
+      "id": "interactieve-fictie",
       "title": "Interactive Fiction",
       "keywords": "Concept, Design, Development",
       "description": "<p>Ketnet wants to innovate and we're happy to help. For example when they wanted to create interactive fiction, as one of the first Belgian television companies. They came to use with a question: how do we turn our popular show \"De Regel van 3S\" into an interactive episode?</p><p>As an answer to that question, we developed a framework that allows them to absorb the viewer into the fiction. The viewer not only gets to decide the faith of the characters, but is also tested for their speed and agility if they want to bring the interactive segments to a good end. Try it for yourself <a href=\"https://www.ketnet.be/spelen/regel-het-voor-dries-de-kunstroof\">in your browser</a> or search for \"Regel het voor Dries: de kunstroof\" in the Ketnet app!</p><p>Because this was uncharted terrain for the show's producers, I guided them with the writing of the script and during the recording of some action sequences.</p>",
@@ -68,6 +72,7 @@
       }
     },
     {
+      "id": "philippaerts",
       "title": "Philippaerts",
       "keywords": "Development, Animation",
       "description": "<p>The Philippaerts family is internationally known for their impressive performances in the world of equestrian sports. Through subtle animations in <a href=\"http://www.philippaerts.be\">the Drupal website</a> that we created for them, we tried to capture the elegance of their magnificent horses.</p>",

@@ -21,6 +21,7 @@
   },
   "projects": [
     {
+      "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animatie",
       "description": "<p>William Boeva creëerde samen met Ketnet een programma over videogames, genaamd \"Boeva & the games\". Ketnet vroeg ons om een bijpassende game te ontwikkelen, waarin de speler kennis zou maken met een breed gamma aan speltypes en gaming-tijdperken. Het resultaat is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/4/index.html\">\"Boeva the Game\"</a>: een ode aan videogames, gemaakt in HTML5 en speelbaar op elk modern toestel, van desktop tot mobiel.</p>",
@@ -33,6 +34,7 @@
       }
     },
     {
+      "id": "kaatje-van-ketnet",
       "title": "Kaatje van Ketnet",
       "keywords": "Development, Animatie",
       "description": "<p>Sinds 2011 ben ik nauw betrokken bij de ontwikkeling van Kaatje's digitale wereld. Tijdens dit traject heb ik een belangrijke rol gespeeld in het bouwen van de fundamenten en het merendeel van de uiteenlopende spelletjes.</p><p>Je kunt Kaatje in actie zien <a href=\"http://kaatje.ketnet.be/html/\">in je browser</a> of op je tablet, via de <a href=\"https://www.ketnet.be/kaatje-voor-ouders/kaatje-van-ketnet-app\">\"Kaatje van Ketnet\"</a> of de <a href=\"https://www.ketnet.be/ketnet-jr/over-de-app\">\"Ketnet Jr\"</a> app.</p>",
@@ -45,6 +47,7 @@
       }
     },
     {
+      "id": "hbvl-staar-waars",
       "title": "HBvL<br>Staar Waars",
       "keywords": "Concept, Design, Development, Animatie",
       "description": "<p>In 2015 introduceerde Disney een nieuw hoofdstuk in de Star Wars saga. Ter ere van deze heuglijke gebeurtenis, wilde Het Belang van Limburg een Star Wars actie met een Limburgse twist op poten zetten. Het resultaat is <a href=\"http://staarwaars.hbvl.be/\">een interactieve Darth Vader kloon</a>, die alles uitspreekt wat je hem voorzegt.</p><p>Ik zorgde onder andere voor het ontwerp en de uitwerking van het 3D model, alsook de code, animaties en koppeling met de externe text-to-speech service.</p>",
@@ -57,6 +60,7 @@
       }
     },
     {
+      "id": "interactieve-fictie",
       "title": "Interactieve Fictie",
       "keywords": "Concept, Design, Development",
       "description": "<p>Ketnet wil innoveren en wij doen daar graag aan mee. Zo ook toen ze als één van de eerste Belgische zenders interactieve fictie wilden creëren. Ze kwamen naar ons met een vraag: hoe maken we een interactieve aflevering voor onze populaire reeks \"De Regel van 3S\"?</p><p>Als antwoord ontwikkelden we een framework waarmee we de kijker volledig kunnen onderdompelem in de fictie. Zo moet men niet alleen over het lot van de personages beslissen, maar tevens snelheid en behendigheid gebruiken om interactieve segmenten tot een goed einde te brengen. Probeer het zelf maar eens <a href=\"https://www.ketnet.be/spelen/regel-het-voor-dries-de-kunstroof\">in je browser</a> of zoek naar \"Regel het voor Dries: de kunstroof\" in de Ketnet app!</p><p>Omdat dit nieuw terrein was voor de programmamakers, heb ik hen tevens begeleid met het schrijven van het script en bij de opnames van enkele actiescènes.</p>",
@@ -68,6 +72,7 @@
       }
     },
     {
+      "id": "philippaerts",
       "title": "Philippaerts",
       "keywords": "Development, Animatie",
       "description": "<p>De familie Philippaerts is alom gekend door hun indrukwekkende prestaties in de wereld van de paardensport. Via subtiele animaties in <a href=\"http://www.philippaerts.be\">de Drupal website</a> die we voor hen creëerden, probeerden we de elegantie van hun paarden te reflecteren.</p>",
