@@ -21,6 +21,39 @@
   },
   "projects": [
     {
+      "id": "fotofabriek",
+      "title": "Ketnet Fotofabriek",
+      "keywords": "Development",
+      "description": "<p>Ketnet launched a new website and new apps, and they needed a new version of their popular Fotofabriek game to launch along with those.</p><p>This new version was made with HTML and javascript, which enabled easy integration into their various platforms. That's why you'll find Fotofabriek <a href=\"https://www.ketnet.be/spelen/f/fotofabriek\">on the Ketnet website</a>, but also in their Android and iOS apps.</p><p>The game also comes with an easy to use backoffice, built using Drupal.</p>",
+      "image": "fotofabriek.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Myself"
+      }
+    },
+    {
+      "id": "comon",
+      "title": "Comon Gent",
+      "keywords": "Development",
+      "description": "<p>Comon wants to engage the people of Gent to make life just a little better. Through discussions and brainstorm sessions, they want to find out what the people of Gent find important, and how they can achieve these things together.</p><p>We created <a href=\"https://comon.gent\">a Drupal website</a> where they can share their challenges, stories and events, and where visitors can interact and have their voices heard.</p>",
+      "image": "comon.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Bregt Vanbilsen & myself"
+      }
+    },
+    {
+      "id": "super-league",
+      "title": "Scooore Super&nbsp;League",
+      "keywords": "Development",
+      "description": "<p>The Scooore Super League is a rebranding of the highest division of Belgian women's football. We developed <a href=\"https://www.scoooresuperlague.be\">the accompanying website</a> in Drupal.</p><p>The website is fed with data from an external API.</p>",
+      "image": "superleague.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Bregt Vanbilsen & myself"
+      }
+    },
+    {
       "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animation",

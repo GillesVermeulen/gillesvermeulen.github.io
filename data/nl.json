@@ -21,6 +21,39 @@
   },
   "projects": [
     {
+      "id": "fotofabriek",
+      "title": "Ketnet Fotofabriek",
+      "keywords": "Development",
+      "description": "<p>Ketnet lanceerde een nieuwe versie van hun website en hun app, en daar hoorde ook een nieuwe versie van hun populaire Fotofabriek spel bij.</p><p>De nieuwe versie van Fotofabriek werd met HTML en Javascript gemaakt, waardoor het eenvoudig op meerdere platformen gelanceerd kon worden. Zo kun je Fotofabriek <a href=\"https://www.ketnet.be/spelen/f/fotofabriek\">in je browser</a> spelen, maar ook via de Android en iOS apps van Ketnet.</p><p>Het spel heeft ook een gebruiksvriendelijke backoffice. Deze werd gebouwd in Drupal.</p>",
+      "image": "fotofabriek.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Mezelf"
+      }
+    },
+    {
+      "id": "comon",
+      "title": "Comon Gent",
+      "keywords": "Development",
+      "description": "<p>Comon wil samen met de Gentenaren het leven net ietsje beter maken. Via rondetafelgesprekken en brainstormsessies, willen ze achterhalen wat de Gentenaar belangrijk vindt, en hoe ze dit kunnen bereiken.</p><p>We creëerden <a href=\"https://comon.gent\">een Drupal website</a> waar ze hun uitdagingen, evenementen en verhalen kwijt kunnen, maar waar bezoekers ook input kunnen geven en hun stem kunnen laten horen.</p>",
+      "image": "comon.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Bregt Vanbilsen & mezelf"
+      }
+    },
+    {
+      "id": "super-league",
+      "title": "Scooore Super&nbsp;League",
+      "keywords": "Development",
+      "description": "<p>De Scooore Super League is een rebranding van de hoogste afdeling in het Belgische vrouwenvoetbal. We ontwikkelden <a href=\"https://www.scoooresuperlague.be\">de daarbijhorende website</a> in Drupal.</p><p>De site wordt gevoedt met data uit een externe API.</p>",
+      "image": "superleague.gif",
+      "credits": {
+        "Design": "Kay Aerts",
+        "Development": "Bregt Vanbilsen & mezelf"
+      }
+    },
+    {
       "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animatie",
