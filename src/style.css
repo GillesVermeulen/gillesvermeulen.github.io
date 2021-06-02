@@ -112,6 +112,7 @@ p:last-child {
   transform: translateX(-50%);
   line-height: 0;
   z-index: 1;
+  image-rendering: crisp-edges;
 }
 
 #face svg,
