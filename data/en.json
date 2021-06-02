@@ -46,7 +46,7 @@
       "id": "super-league",
       "title": "Scooore Super&nbsp;League",
       "keywords": "Development",
-      "description": "<p>The Scooore Super League is a rebranding of the highest division of Belgian women's football. We developed <a href=\"https://www.scoooresuperlague.be\">the accompanying website</a> in Drupal.</p><p>The website is fed with data from an external API.</p>",
+      "description": "<p>The Scooore Super League is a rebranding of the highest division of Belgian women's football. We developed <a href=\"https://www.scoooresuperleague.be\">the accompanying website</a> in Drupal.</p><p>The website is fed with data from an external API.</p>",
       "image": "superleague.gif",
       "credits": {
         "Design": "Kay Aerts",

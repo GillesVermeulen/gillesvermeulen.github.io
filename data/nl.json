@@ -46,7 +46,7 @@
       "id": "super-league",
       "title": "Scooore Super&nbsp;League",
       "keywords": "Development",
-      "description": "<p>De Scooore Super League is een rebranding van de hoogste afdeling in het Belgische vrouwenvoetbal. We ontwikkelden <a href=\"https://www.scoooresuperlague.be\">de daarbijhorende website</a> in Drupal.</p><p>De site wordt gevoedt met data uit een externe API.</p>",
+      "description": "<p>De Scooore Super League is een rebranding van de hoogste afdeling in het Belgische vrouwenvoetbal. We ontwikkelden <a href=\"https://www.scoooresuperleague.be\">de daarbijhorende website</a> in Drupal.</p><p>De site wordt gevoedt met data uit een externe API.</p>",
       "image": "superleague.gif",
       "credits": {
         "Design": "Kay Aerts",
