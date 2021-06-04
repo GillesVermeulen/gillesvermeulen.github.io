@@ -24,7 +24,7 @@
       "id": "fotofabriek",
       "title": "Ketnet Fotofabriek",
       "keywords": "Development",
-      "description": "<p>Ketnet launched a new website and new apps, and they needed a new version of their popular Fotofabriek game to launch along with those.</p><p>This new version was made with HTML and javascript, which enabled easy integration into their various platforms. That's why you'll find Fotofabriek <a href=\"https://www.ketnet.be/spelen/f/fotofabriek\">on the Ketnet website</a>, but also in their Android and iOS apps.</p><p>The game also comes with an easy to use backoffice, built using Drupal.</p>",
+      "description": "<p>Ketnet launched a new website and new apps, and they needed a new version of their popular Fotofabriek game to launch along with those.</p><p>This new version was made with HTML and javascript, which enabled easy integration into their various platforms. That's why you'll find Fotofabriek <a href=\"https://static.ketnet.be/fotofabriek/index.html\" rel=\"nofollow\">on the Ketnet website</a>, but also in their Android and iOS apps.</p><p>The game also comes with an easy to use backoffice, built using Drupal.</p>",
       "image": "fotofabriek.gif",
       "credits": {
         "Design": "Kay Aerts",
