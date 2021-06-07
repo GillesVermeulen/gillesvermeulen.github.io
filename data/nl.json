@@ -57,7 +57,7 @@
       "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animatie",
-      "description": "<p>William Boeva creëerde samen met Ketnet een programma over videogames, genaamd \"Boeva & the games\". Ketnet vroeg ons om een bijpassende game te ontwikkelen, waarin de speler kennis zou maken met een breed gamma aan speltypes en gaming-tijdperken. Het resultaat is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/4/index.html\">\"Boeva the Game\"</a>: een ode aan videogames, gemaakt in HTML5 en speelbaar op elk modern toestel, van desktop tot mobiel.</p>",
+      "description": "<p>William Boeva creëerde samen met Ketnet een programma over videogames, genaamd \"Boeva & the games\". Ketnet vroeg ons om een bijpassende game te ontwikkelen, waarin de speler kennis zou maken met een breed gamma aan speltypes en gaming-tijdperken. Het resultaat is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/5/index.html\">\"Boeva the Game\"</a>: een ode aan videogames, gemaakt in HTML5 en speelbaar op elk modern toestel, van desktop tot mobiel.</p>",
       "image": "boeva.gif",
       "credits": {
         "Concept": "Ketnet & mezelf",
@@ -70,7 +70,7 @@
       "id": "kaatje-van-ketnet",
       "title": "Kaatje van Ketnet",
       "keywords": "Development, Animatie",
-      "description": "<p>Sinds 2011 ben ik nauw betrokken bij de ontwikkeling van Kaatje's digitale wereld. Tijdens dit traject heb ik een belangrijke rol gespeeld in het bouwen van de fundamenten en het merendeel van de uiteenlopende spelletjes.</p><p>Je kunt Kaatje in actie zien <a href=\"http://kaatje.ketnet.be/html/\">in je browser</a> of op je tablet, via de <a href=\"https://www.ketnet.be/kaatje-voor-ouders/kaatje-van-ketnet-app\">\"Kaatje van Ketnet\"</a> of de <a href=\"https://www.ketnet.be/ketnet-jr/over-de-app\">\"Ketnet Jr\"</a> app.</p>",
+      "description": "<p>Sinds 2011 ben ik nauw betrokken bij de ontwikkeling van Kaatje's digitale wereld. Tijdens dit traject heb ik een belangrijke rol gespeeld in het bouwen van de fundamenten en het merendeel van de uiteenlopende spelletjes.</p><p>Je kunt Kaatje in actie zien in je browser of op je tablet, via de \"Kaatje van Ketnet\" app (<a href=\"https://play.google.com/store/apps/details?id=be.vrt.ketnet.kaatjegeneriek\">Android</a>, <a href=\"https://apps.apple.com/be/app/kaatje-van-ketnet/id927943978\">iOS</a>) of de \"Ketnet Jr\" app (<a href=\"https://play.google.com/store/apps/details?id=be.vrt.ketnet.ketnetjr\">Android</a>, <a href=\"https://apps.apple.com/be/app/ketnet-junior/id1001982587\">iOS</a>).</p>",
       "image": "kaatje.gif",
       "credits": {
         "Concept": "Ketnet, Pascal Vermeersch & Pure Communication",
@@ -96,7 +96,7 @@
       "id": "interactieve-fictie",
       "title": "Interactieve Fictie",
       "keywords": "Concept, Design, Development",
-      "description": "<p>Ketnet wil innoveren en wij doen daar graag aan mee. Zo ook toen ze als één van de eerste Belgische zenders interactieve fictie wilden creëren. Ze kwamen naar ons met een vraag: hoe maken we een interactieve aflevering voor onze populaire reeks \"De Regel van 3S\"?</p><p>Als antwoord ontwikkelden we een framework waarmee we de kijker volledig kunnen onderdompelem in de fictie. Zo moet men niet alleen over het lot van de personages beslissen, maar tevens snelheid en behendigheid gebruiken om interactieve segmenten tot een goed einde te brengen. Probeer het zelf maar eens <a href=\"https://www.ketnet.be/spelen/regel-het-voor-dries-de-kunstroof\">in je browser</a> of zoek naar \"Regel het voor Dries: de kunstroof\" in de Ketnet app!</p><p>Omdat dit nieuw terrein was voor de programmamakers, heb ik hen tevens begeleid met het schrijven van het script en bij de opnames van enkele actiescènes.</p>",
+      "description": "<p>Ketnet wil innoveren en wij doen daar graag aan mee. Zo ook toen ze als één van de eerste Belgische zenders interactieve fictie wilden creëren. Ze kwamen naar ons met een vraag: hoe maken we een interactieve aflevering voor onze populaire reeks \"De Regel van 3S\"?</p><p>Als antwoord ontwikkelden we een framework waarmee we de kijker volledig kunnen onderdompelem in de fictie. Zo moet men niet alleen over het lot van de personages beslissen, maar tevens snelheid en behendigheid gebruiken om interactieve segmenten tot een goed einde te brengen. Probeer het zelf maar eens <a href=\"https://content.ketnet.be/games/interactieve-fictie/dist/?data=../data/dries_en_de_vrolijke_zeekapitein/dries_en_de_vrolijke_zeekapitein.yml\">in je browser</a> of zoek naar \"Regel het voor Dries: de kunstroof\" in de Ketnet app!</p><p>Omdat dit nieuw terrein was voor de programmamakers, heb ik hen tevens begeleid met het schrijven van het script en bij de opnames van enkele actiescènes.</p>",
       "image": "interactievefictie.gif",
       "credits": {
         "Concept": "Ketnet, Bregt Vanbilsen & mezelf",

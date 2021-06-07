@@ -57,7 +57,7 @@
       "id": "boeva-the-game",
       "title": "Boeva the game",
       "keywords": "Concept, Design, Development, Animation",
-      "description": "<p>In cooperation with Ketnet, William Boeva created a TV show about video games, named \"Boeva & the games\". Ketnet asked us to develop a matching game, in which the player gets to experience a wide range of game types and gaming eras. The result is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/4/index.html\">\"Boeva the Game\"</a>: an ode to video games, made in HTML5 and playable on many modern devices, from a desktop to your mobile phone.</p>",
+      "description": "<p>In cooperation with Ketnet, William Boeva created a TV show about video games, named \"Boeva & the games\". Ketnet asked us to develop a matching game, in which the player gets to experience a wide range of game types and gaming eras. The result is <a href=\"https://content.ketnet.be/ketnet/games/boeva-the-game/5/index.html\">\"Boeva the Game\"</a>: an ode to video games, made in HTML5 and playable on many modern devices, from a desktop to your mobile phone.</p>",
       "image": "boeva.gif",
       "credits": {
         "Concept": "Ketnet & myself",
@@ -70,7 +70,7 @@
       "id": "kaatje-van-ketnet",
       "title": "Ketnet's Kaatje",
       "keywords": "Development, Animation",
-      "description": "<p>Since 2011 I've been closely involved with the development of Kaatje's digital presence. During this trajectory, I've played an important role in building the fundamentals and a majority of the diverse games.</p><p>You can see Kaatje in action <a href=\"http://kaatje.ketnet.be/html/\">in your browser</a> or on your tablet and smartphone, via the <a href=\"https://www.ketnet.be/kaatje-voor-ouders/kaatje-van-ketnet-app\">\"Kaatje van Ketnet\"</a> or the <a href=\"https://www.ketnet.be/ketnet-jr/over-de-app\">\"Ketnet Jr\"</a> app.</p>",
+      "description": "<p>Since 2011 I've been closely involved with the development of Kaatje's digital presence. During this trajectory, I've played an important role in building the fundamentals and a majority of the diverse games.</p><p>You can see Kaatje in action in your browser or on your tablet and smartphone, via the \"Kaatje van Ketnet\" app (<a href=\"https://play.google.com/store/apps/details?id=be.vrt.ketnet.kaatjegeneriek\">Android</a>, <a href=\"https://apps.apple.com/be/app/kaatje-van-ketnet/id927943978\">iOS</a>) or the \"Ketnet Jr\" app (<a href=\"https://play.google.com/store/apps/details?id=be.vrt.ketnet.ketnetjr\">Android</a>, <a href=\"https://apps.apple.com/be/app/ketnet-junior/id1001982587\">iOS</a>).</p>",
       "image": "kaatje.gif",
       "credits": {
         "Concept": "Ketnet, Pascal Vermeersch & Pure Communication",
@@ -96,7 +96,7 @@
       "id": "interactieve-fictie",
       "title": "Interactive Fiction",
       "keywords": "Concept, Design, Development",
-      "description": "<p>Ketnet wants to innovate and we're happy to help. For example when they wanted to create interactive fiction, as one of the first Belgian television companies. They came to use with a question: how do we turn our popular show \"De Regel van 3S\" into an interactive episode?</p><p>As an answer to that question, we developed a framework that allows them to absorb the viewer into the fiction. The viewer not only gets to decide the faith of the characters, but is also tested for their speed and agility if they want to bring the interactive segments to a good end. Try it for yourself <a href=\"https://www.ketnet.be/spelen/regel-het-voor-dries-de-kunstroof\">in your browser</a> or search for \"Regel het voor Dries: de kunstroof\" in the Ketnet app!</p><p>Because this was uncharted terrain for the show's producers, I guided them with the writing of the script and during the recording of some action sequences.</p>",
+      "description": "<p>Ketnet wants to innovate and we're happy to help. For example when they wanted to create interactive fiction, as one of the first Belgian television companies. They came to use with a question: how do we turn our popular show \"De Regel van 3S\" into an interactive episode?</p><p>As an answer to that question, we developed a framework that allows them to absorb the viewer into the fiction. The viewer not only gets to decide the faith of the characters, but is also tested for their speed and agility if they want to bring the interactive segments to a good end. Try it for yourself <a href=\"https://content.ketnet.be/games/interactieve-fictie/dist/?data=../data/dries_en_de_vrolijke_zeekapitein/dries_en_de_vrolijke_zeekapitein.yml\">in your browser</a> or search for \"Regel het voor Dries: de kunstroof\" in the Ketnet app!</p><p>Because this was uncharted terrain for the show's producers, I guided them with the writing of the script and during the recording of some action sequences.</p>",
       "image": "interactievefictie.gif",
       "credits": {
         "Concept": "Ketnet, Bregt Vanbilsen & myself",
