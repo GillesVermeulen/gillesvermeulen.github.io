@@ -403,8 +403,6 @@
 
     if (typeof project._transitioningTimeout !== 'undefined' && project._transitioningTimeout) window.clearTimeout(project._transitioningTimeout);
 
-    scrollToActiveProject();
-
     project._active = true;
     project._transitioning = true;
     project.setAttribute('data-transitioning', 'true');
@@ -417,6 +415,8 @@
     project.querySelector('.description__inner').scrollTop = 0;
 
     scrollOuterWrapperElement.addEventListener('click', clickWhenProjectActiveHandler);
+
+    scrollToActiveProject();
   }
 
   function scrollToActiveProject() {
